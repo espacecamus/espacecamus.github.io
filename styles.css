@@ -253,9 +253,28 @@ p {
 .lightbox.open {
     display: flex;
 }
+.lightbox-title {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    background: rgba(99, 102, 241, 0.75);
+    padding: 5px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+    max-width: 80vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+}
 .lightbox img {
     max-width: 90vw;
-    max-height: 88vh;
+    max-height: 82vh;
+    margin-top: 40px;
     border-radius: 10px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
 }

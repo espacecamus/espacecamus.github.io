@@ -74,27 +74,58 @@
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close">&times;</span>
+  <span id="lightbox-title" class="lightbox-title"></span>
+  <span class="lightbox-nav lightbox-prev">&#8249;</span>
   <img id="lightbox-img" src="" alt="">
+  <span class="lightbox-nav lightbox-next">&#8250;</span>
 </div>
 
 <script>
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const lightboxTitle = document.getElementById('lightbox-title');
+const imgs = Array.from(document.querySelectorAll('.gallery-item img'));
+let currentIndex = 0;
 
-document.querySelectorAll('.gallery-item img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('open');
-  });
+function getGroupTitle(img) {
+  let el = img.closest('.gallery');
+  while ((el = el.previousElementSibling)) {
+    if (el.tagName === 'H3') return el.textContent;
+  }
+  return '';
+}
+
+function openAt(index) {
+  currentIndex = (index + imgs.length) % imgs.length;
+  lightboxImg.src = imgs[currentIndex].src;
+  lightboxImg.alt = imgs[currentIndex].alt;
+  lightboxTitle.textContent = getGroupTitle(imgs[currentIndex]);
+  lightbox.classList.add('open');
+}
+
+imgs.forEach((img, i) => img.addEventListener('click', () => openAt(i)));
+
+document.querySelector('.lightbox-prev').addEventListener('click', e => {
+  e.stopPropagation();
+  openAt(currentIndex - 1);
+});
+
+document.querySelector('.lightbox-next').addEventListener('click', e => {
+  e.stopPropagation();
+  openAt(currentIndex + 1);
 });
 
 lightbox.addEventListener('click', e => {
-  if (e.target !== lightboxImg) lightbox.classList.remove('open');
+  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) {
+    lightbox.classList.remove('open');
+  }
 });
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') lightbox.classList.remove('open');
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape')      lightbox.classList.remove('open');
+  if (e.key === 'ArrowLeft')   openAt(currentIndex - 1);
+  if (e.key === 'ArrowRight')  openAt(currentIndex + 1);
 });
 </script>
 
