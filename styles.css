@@ -4,8 +4,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    /*ligne suivant a replacer par "background: #0d1117;" si vous aimez pas :( */
-    background : radial-gradient(circle at center, #1f2937, #0d1117);
+    background: radial-gradient(circle at center, #1f2937, #0d1117);
 }
 
 header {
@@ -22,30 +21,30 @@ nav {
     padding: 10px;
     justify-content: center;
 }
-nav button {
+nav a {
     color: white;
     background: #374151;
     padding: 10px 15px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
-nav button:hover {
+nav a:hover {
     background: #4b5563;
 }
+nav a.active {
+    background: #6b7280;
+}
 section {
-    display: none;
     max-width: 900px;
     margin: 40px auto;
     background: #1f2937;
     padding: 20px;
     border-radius: 10px;
 }
-section.active {
-    display: block;
-}
-/* supprimer le code de la linge 48 a 50 si vous aimez pas la police d'écriture (Oswald) */
-p { 
+p {
     font-family: "Oswald", sans-serif;
     font-size: 1.1rem;
 }
@@ -59,7 +58,7 @@ p {
     font-family: Arial, sans-serif;
 }
 .titre-accueil {
-    color : red;
-    font-size : 2rem;
+    color: red;
+    font-size: 2rem;
     text-transform: uppercase;
 }
