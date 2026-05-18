@@ -27,7 +27,51 @@
 <h2>Projets</h2>
 <p>Ici, vous trouverez tous nos projets.</p>
 <p>Nous avons la chance d'assister à l'événement ARISS, pour cet événement, il a été demandé de présenter le collège. Et quoi de mieux qu'une vidéo réalisée par les élèves !? Alors à vos caméras, prêts ? Filmez !</p>
-<img src="filmeTonCollege.jpeg" class="album-image">
+<p style="text-align:center; color:#06b6d4; font-family:Arial,sans-serif; font-size:0.95rem; margin-bottom:8px;">
+  🎬 Cliquez sur l'image pour lancer le film
+</p>
+<div id="video-container" style="position:relative; cursor:pointer; border-radius:12px; overflow:hidden;">
+  <img id="video-poster" src="filmeTonCollege.jpeg" class="album-image" style="margin-top:0; display:block;">
+  <div id="video-overlay" style="
+    position:absolute; inset:0;
+    background:rgba(0,0,0,0.45);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    opacity:0; transition:opacity 0.2s;
+    border-radius:12px;
+  ">
+    <div style="
+      width:64px; height:64px; border-radius:50%;
+      background:rgba(99,102,241,0.85);
+      display:flex; align-items:center; justify-content:center;
+      font-size:2rem; color:white; margin-bottom:12px;
+    ">▶</div>
+    <span style="color:white; font-family:Arial,sans-serif; font-size:0.95rem;">Cliquer pour lancer le film</span>
+  </div>
+  <div id="video-frame" style="display:none; position:relative; padding-bottom:56.25%; height:0;">
+    <iframe id="video-iframe"
+      style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+      allow="autoplay" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+const container = document.getElementById('video-container');
+const overlay   = document.getElementById('video-overlay');
+const poster    = document.getElementById('video-poster');
+const frame     = document.getElementById('video-frame');
+
+container.addEventListener('mouseenter', () => overlay.style.opacity = '1');
+container.addEventListener('mouseleave', () => overlay.style.opacity = '0');
+container.addEventListener('click', () => {
+  document.getElementById('video-iframe').src =
+    'https://drive.google.com/file/d/1BLEl3vvOgFq9t30FurfjJvynig_ktUPu/preview';
+  poster.style.display  = 'none';
+  overlay.style.display = 'none';
+  frame.style.display   = 'block';
+  container.style.cursor = 'default';
+});
+</script>
 <p>Cette année, en classe espace, nous allons réaliser de nombreux projets dont vous trouverez la liste ci-dessous.</p>
 <p>- Programmation d'animations ou de différents détecteurs.</p>
 <p>- Modélisation 3D sur le site Tinkercad, puis nous l'imprimerons avec la magnifique imprimante Creality.</p>
