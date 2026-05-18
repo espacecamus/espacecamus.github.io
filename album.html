@@ -24,28 +24,79 @@
 
 <section>
 <h2>Album</h2>
-<p> <strong>Album numérique des classes Espace : souvenirs préservés, sécurité garantie !</strong> </p>
+<p><strong>Album numérique des classes Espace : souvenirs préservés, sécurité garantie !</strong></p>
 <p>Retrouvez dans cet album une sélection des photos prises lors des événements et activités des classes Espace. Chaque image a été soigneusement traitée : <strong>les visages y sont systématiquement floutés</strong> pour garantir le respect de la vie privée de chacun.</p>
 <p>Attention : il est strictement interdit de récupérer ou de télécharger directement les photos depuis l'album. Pour obtenir une ou plusieurs images au format fichier, <strong>une demande écrite par e-mail</strong> doit être adressée aux administrateurs du site, à l'adresse => siteespacecamus@gmail.com</p>
-<p><strong>Les photos de l'album seront retirées un mois après leur publication, elles seront disponibles via un site d'archives, auquel vous pouvez accéder via le lien suivant :  https://kdrive.infomaniak.com/app/share/2631065/2d8c0de0-a5be-4f2c-85cb-63b7172922ac </strong></p>
-<p>___________________________________________________________________________________________________________________________________</p>
-<!--Photo en version collage-->
+<p><strong>Les photos de l'album seront retirées un mois après leur publication, elles seront disponibles via un site d'archives, auquel vous pouvez accéder via le lien suivant : https://kdrive.infomaniak.com/app/share/2631065/2d8c0de0-a5be-4f2c-85cb-63b7172922ac</strong></p>
 
-<p>Ci-dessous, vous pouvez trouver des photos des Raspberry Pi, qui se trouvent en salle AstroPi.</p>
-<img src="Capture d'écran 2026-01-30 194330.png" class="album-image">
-<img src="Capture d'écran 2026-01-30 194638.png" class="album-image">
-<p>___________________________________________________________________________________________________________________________________</p>
-<p>C'est bon ! Les tenues espaces sont enfin là, sur Animal Crossing. Vous voulez les voir ? Elles sont en dessous !😎🚀</p>
-<img src="Capture d'écran 2026-02-01 112916.png" class="album-image">
-<p>___________________________________________________________________________________________________________________________________</p>
-<p>Ci-dessous, vous pourrez trouver des photos des maquettes, des salles, de la déco de la salle AstroPi...</p>
-<img src="Capture d'écran 2026-01-30 194921.png" class="album-image">
-<img src="Capture d'écran 2026-01-30 195255.png" class="album-image">
-<img src="Capture d'écran 2026-01-31 101014.png" class="album-image">
-<img src="Capture d'écran 2026-01-31 101146.png" class="album-image">
-<img src="Capture d'écran 2026-01-31 101937.png" class="album-image">
-<img src="Capture d'écran 2026-01-31 102516.png" class="album-image">
+<p>Cliquez sur une photo pour l'agrandir.</p>
+
+<h3>Raspberry Pi – salle AstroPi</h3>
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
+  </div>
+</div>
+
+<h3>Tenues Espace sur Animal Crossing 😎🚀</h3>
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-02-01 112916.png" loading="lazy" alt="Tenues espace sur Animal Crossing">
+  </div>
+</div>
+
+<h3>Maquettes, salles et décoration AstroPi</h3>
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-30 194921.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-30 195255.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-31 101014.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-31 101146.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-31 101937.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-31 102516.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
+  </div>
+</div>
 </section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== lightboxImg) lightbox.classList.remove('open');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+});
+</script>
 
 </body>
 </html>

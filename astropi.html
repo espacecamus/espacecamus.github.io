@@ -27,12 +27,48 @@
 <h3>Description</h3>
 <p>Le challenge AstroPi, proposé par l'ESA (European Space Agency, en français : Agence spatiale européenne), invite les jeunes à relever un défi exceptionnel : programmer une expérience scientifique qui sera envoyée à bord de la Station spatiale internationale. C'est une aventure unique qui mêle créativité, esprit d'équipe et découverte des sciences du numérique. Les participants ont l'opportunité de concevoir un véritable projet d'astronaute, réalisé dans des conditions réelles en orbite. Ce challenge inspire à la fois la rigueur scientifique et le rêve spatial, offrant à chacun la chance de contribuer, à son échelle, à l'exploration de l'espace.</p>
 <p>Un Raspberry Pi est un petit ordinateur polyvalent, conçu pour apprendre la programmation et réaliser toutes sortes de projets électroniques. Associé au module Sense HAT, il devient encore plus puissant. Le Sense HAT possède des capteurs capables de mesurer la température, l'humidité, la pression, l'orientation ou encore les mouvements. Il inclut aussi une matrice de LEDs pour afficher des informations. Ensemble, ces outils permettent de créer des expériences scientifiques, des jeux, ou même des projets destinés à fonctionner dans l'espace, comme ceux du challenge AstroPi.</p>
-<p>Vous pourrez également retrouver quelques photos prises lors des séances "AstroPi".</p>
+
+<h3>Séances</h3>
+<p>Vous pourrez retrouver ci-dessous quelques photos prises lors des séances "AstroPi". Cliquez sur une photo pour l'agrandir.</p>
 <p>1ère séance pour les 3èmes, ce mardi 27/01/2026, où ils ont pu programmer un "Space Invader", puis, pour les groupes qui avaient eu le temps, ils ont pu programmer des animations. Tous les programmes doivent être sur le thème de la faune et la flore, pour qu'ils puissent ensuite être envoyés dans la station spatiale.</p>
 <p>Ci-dessous, vous pouvez retrouver les micro-ordinateurs Raspberry Pi, certains sont même en train d'afficher des programmes sur les photos.</p>
-<img src="Capture d'écran 2026-01-30 194330.png" class="album-image">
-<img src="Capture d'écran 2026-01-30 194638.png" class="album-image">
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
+  </div>
+  <div class="gallery-item">
+    <img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
+  </div>
+</div>
 </section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== lightboxImg) lightbox.classList.remove('open');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+});
+</script>
 
 </body>
 </html>
