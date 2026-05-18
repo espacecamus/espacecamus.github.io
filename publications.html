@@ -26,11 +26,93 @@
 <h2>Publications</h2>
 <p>Ici, vous pourrez trouver les publications qui seront faites 1 à 2 fois par semaine.</p>
 <p><strong>Les publications seront supprimées 1 mois après leur arrivée sur le site, elles seront disponibles via un site d'archives, dont le lien vous sera communiqué plus tard.</strong></p>
-<img src="Capture d'écran 2026-01-31 113055.png" alt="">
-<img src="Capture d'écran 2026-01-31 113138.png" alt="">
-<img src="Capture d'écran 2026-01-31 113224.png" alt="">
-<img src="Capture d'écran 2026-01-31 113253.png" alt="">
+<p>Cliquez sur une publication pour l'agrandir.</p>
+
+<div class="pub-grid" id="pubGrid">
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°1</span></div>
+    <img class="pub-card-img" src="pub1.png" loading="lazy" alt="Publication n°1">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°2</span></div>
+    <img class="pub-card-img" src="pub2.png" loading="lazy" alt="Publication n°2">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°3</span></div>
+    <img class="pub-card-img" src="pub3.png" loading="lazy" alt="Publication n°3">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°4</span></div>
+    <img class="pub-card-img" src="pub4.png" loading="lazy" alt="Publication n°4">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°5</span></div>
+    <img class="pub-card-img" src="pub5.png" loading="lazy" alt="Publication n°5">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°6</span></div>
+    <img class="pub-card-img" src="pub6.png" loading="lazy" alt="Publication n°6">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°7</span></div>
+    <img class="pub-card-img" src="pub7.png" loading="lazy" alt="Publication n°7">
+  </div>
+  <div class="pub-card">
+    <div class="pub-card-header"><span class="pub-number">Publication n°8</span></div>
+    <img class="pub-card-img" src="pub8.png" loading="lazy" alt="Publication n°8">
+  </div>
+</div>
 </section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <span class="lightbox-nav lightbox-prev">&#8249;</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="lightbox-nav lightbox-next">&#8250;</span>
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const cards = Array.from(document.querySelectorAll('.pub-card'));
+let currentIndex = 0;
+
+function openAt(index) {
+  currentIndex = (index + cards.length) % cards.length;
+  const img = cards[currentIndex].querySelector('.pub-card-img');
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.add('open');
+}
+
+cards.forEach((card, i) => {
+  card.addEventListener('click', () => openAt(i));
+});
+
+document.querySelector('.lightbox-prev').addEventListener('click', e => {
+  e.stopPropagation();
+  openAt(currentIndex - 1);
+});
+
+document.querySelector('.lightbox-next').addEventListener('click', e => {
+  e.stopPropagation();
+  openAt(currentIndex + 1);
+});
+
+lightbox.addEventListener('click', e => {
+  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) {
+    lightbox.classList.remove('open');
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+  if (e.key === 'ArrowLeft')  openAt(currentIndex - 1);
+  if (e.key === 'ArrowRight') openAt(currentIndex + 1);
+});
+</script>
 
 </body>
 </html>
