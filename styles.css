@@ -43,9 +43,16 @@ header {
 header::before {
   content: '';
   position: absolute; inset: 0; z-index: -1;
-  background:
-    radial-gradient(ellipse 70% 130% at 50% 50%, rgba(99,102,241,.18) 0%, transparent 65%),
-    linear-gradient(160deg, #050c1a 0%, #0d1b38 50%, #050c1a 100%);
+  background-image:
+    radial-gradient(ellipse 70% 100% at 50% 50%, rgba(3,9,25,.55) 0%, rgba(3,9,25,.15) 100%),
+    url('galaxy-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: galaxy-breathe 9s ease-in-out infinite alternate;
+}
+@keyframes galaxy-breathe {
+  0%   { opacity: .82; transform: scale(1)    translateX(0); }
+  100% { opacity: 1;   transform: scale(1.04) translateX(-1%); }
 }
 header::after {
   content: '';
@@ -60,21 +67,27 @@ header::after {
   letter-spacing: .08em;
   text-transform: uppercase;
   line-height: 1.1;
-  margin: 0 0 8px;
-  background: linear-gradient(130deg, #c7d2fe 0%, #a5b4fc 28%, #67e8f9 62%, #22d3ee 100%);
+  margin: 0 0 10px;
+  /* gradient blanc → cyan : contraste fort sur fond sombre */
+  background: linear-gradient(130deg, #ffffff 0%, #e0e7ff 35%, #a5f3fc 70%, #22d3ee 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: header-shimmer 7s linear infinite;
+  /* ombre sombre + halo violet pour séparer du fond */
+  filter:
+    drop-shadow(0 2px 10px rgba(0,0,0,.95))
+    drop-shadow(0 0 22px rgba(99,102,241,.55));
 }
 .header-subtitle {
   font-size: clamp(.75rem, 1.8vw, 1rem);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: .22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(226,232,240,.92);
   margin: 0;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,.95));
 }
 @keyframes header-shimmer {
   0%   { background-position: 0% center; }
