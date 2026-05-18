@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python3)",
       "Read(//tmp/**)",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "mcp__claude_ai_Google_Drive__search_files"
     ]
   }
 }
