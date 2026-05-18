@@ -63,6 +63,109 @@ p {
     text-transform: uppercase;
 }
 
+/* Timeline événements */
+.timeline {
+    position: relative;
+    padding: 10px 0 10px 44px;
+    margin-top: 24px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #6366f1, #06b6d4);
+    border-radius: 2px;
+}
+.event-card {
+    position: relative;
+    background: #111827;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+    border: 1px solid #374151;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.event-card:hover {
+    border-color: #6366f1;
+    transform: translateX(4px);
+}
+.event-card::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 22px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid #0d1117;
+}
+.event-card.past {
+    opacity: 0.65;
+}
+.event-card.past::before {
+    background: #4b5563;
+    box-shadow: 0 0 0 2px #4b5563;
+}
+.event-card.upcoming::before {
+    background: #06b6d4;
+    box-shadow: 0 0 0 2px #06b6d4;
+    animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 2px #06b6d4; }
+    50%       { box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.25); }
+}
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.event-date {
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+.event-card.past    .event-date { background: #4b5563; }
+.event-card.upcoming .event-date { background: #06b6d4; }
+.event-location {
+    color: #9ca3af;
+    font-size: 0.88rem;
+    font-family: Arial, sans-serif;
+}
+.event-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+.event-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    vertical-align: middle;
+}
+.badge-past     { background: #374151; color: #9ca3af; }
+.badge-upcoming { background: rgba(6,182,212,0.15); color: #06b6d4; border: 1px solid #06b6d4; }
+.event-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #818cf8;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+.event-link:hover { text-decoration: underline; }
+
 /* Galerie en grille */
 .gallery {
     display: grid;
