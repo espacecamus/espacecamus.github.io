@@ -391,6 +391,27 @@ a:hover { color: #67e8f9; }
 .lightbox-prev { left: 14px; }
 .lightbox-next { right: 14px; }
 
+/* ─── Footer ─── */
+footer {
+  text-align: center;
+  padding: 28px 20px 32px;
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.8;
+}
+footer .footer-title {
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: .04em;
+}
+footer .footer-made {
+  margin-top: 4px;
+  font-size: .78rem;
+  color: var(--muted);
+}
+
 /* ─── Responsive — Tablet ─── */
 @media (max-width: 1040px) {
   section { margin: 24px 16px; }
