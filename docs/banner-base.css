@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&display=swap');
+
+/* Bannière commune aux pages du site */
+body > header:not(.home-space-banner) {
+  min-height: clamp(220px, 25vw, 300px);
+  padding: clamp(42px, 6vw, 68px) 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(103,232,249,.22);
+}
+
+/* Fond totalement fixe : annule explicitement l'ancienne animation de styles.css */
+body > header:not(.home-space-banner)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, transparent 0%, #4f46e5 20%, #22d3ee 50%, #7c3aed 80%, transparent 100%) bottom / 100% 3px no-repeat,
+    radial-gradient(circle at 8% 108%, rgba(132,153,219,.95) 0 8%, rgba(65,80,138,.86) 15%, rgba(16,29,69,.72) 24%, transparent 25%),
+    radial-gradient(ellipse at 50% 45%, rgba(124,58,237,.14) 0%, transparent 34%),
+    radial-gradient(ellipse at 72% 25%, rgba(34,211,238,.10) 0%, transparent 28%),
+    linear-gradient(180deg, rgba(1,5,18,.18) 0%, rgba(2,6,23,.45) 55%, rgba(2,6,23,.82) 100%),
+    url('galaxy-banner.jpg') center / cover no-repeat;
+  filter: saturate(1.22) contrast(1.05);
+  box-shadow: inset 0 -3px 18px rgba(34,211,238,.16);
+  animation: none !important;
+  transform: none !important;
+  opacity: 1;
+}
+
+/* Étoile filante : visible brièvement environ toutes les 8 secondes */
+body > header:not(.home-space-banner)::after {
+  content: '';
+  position: absolute;
+  top: 17%;
+  left: -210px;
+  right: auto !important;
+  bottom: auto !important;
+  width: 190px;
+  height: 2px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(165,243,252,.20) 20%, rgba(224,251,255,.94) 72%, #ffffff 100%);
+  box-shadow:
+    128px 0 7px 1px rgba(255,255,255,.82),
+    176px 0 11px 2px rgba(103,232,249,.92);
+  filter: drop-shadow(0 0 9px rgba(103,232,249,.88));
+  opacity: 0;
+  transform: rotate(-13deg) translate3d(0,0,0);
+  animation: shooting-star 8s linear infinite !important;
+}
+
+@keyframes shooting-star {
+  0%, 10% {
+    opacity: 0;
+    transform: rotate(-13deg) translate3d(0,0,0);
+  }
+  12% { opacity: 1; }
+  23% {
+    opacity: 1;
+    transform: rotate(-13deg) translate3d(72vw,105px,0);
+  }
+  31% {
+    opacity: 0;
+    transform: rotate(-13deg) translate3d(122vw,178px,0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-13deg) translate3d(122vw,178px,0);
+  }
+}
+
+body > header:not(.home-space-banner) .header-title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-size: clamp(2.35rem, 6vw, 4.9rem);
+  font-weight: 700;
+  letter-spacing: .045em;
+  line-height: .98;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #ffffff 0%, #dff9ff 26%, #a5f3fc 48%, #c4b5fd 70%, #ffffff 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: banner-title-scan 7s linear infinite;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.95)) drop-shadow(0 0 24px rgba(103,232,249,.22));
+}
+
+body > header:not(.home-space-banner) .header-title::after {
+  content: '';
+  display: block;
+  width: min(430px, 64vw);
+  height: 1px;
+  margin: 17px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(165,243,252,.30), rgba(255,255,255,.82), rgba(165,243,252,.30), transparent);
+  box-shadow: 0 0 10px rgba(34,211,238,.32);
+}
+
+@keyframes banner-title-scan {
+  from { background-position: 0% center; }
+  to { background-position: 220% center; }
+}
+
+body > header:not(.home-space-banner) .header-subtitle {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 17px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(196,181,253,.24);
+  background: rgba(2,6,23,.34);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  color: #f1f5ff;
+  font-size: clamp(.7rem, 1.6vw, .95rem);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 7px rgba(0,0,0,.95);
+}
+
+/* Pied de page commun */
+.footer-made {
+  font-size: 0 !important;
+}
+
+.footer-made::after {
+  content: '🛰️ Conception initiale : Mati & Valentin – Classes Espace 2025-2026  |  🚀 Développement, finalisation et mise à jour : Mme Harel ✨';
+  display: inline-block;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+/* Onglets retirés de la navigation */
+.nav-links a[href="projets.html"],
+.nav-links a[href="remerciements.html"],
+.nav-links a[href="maquette.html"] {
+  display: none !important;
+}
+
+/* Album placé en avant-dernier parmi les onglets visibles */
+.nav-links a[href="album.html"] {
+  order: 98;
+}
+
+/* Libellé commun de la rubrique médias sur toutes les pages */
+.nav-links a[href="medias.html"] {
+  font-size: 0;
+}
+
+.nav-links a[href="medias.html"]::after {
+  content: 'Vidéos & articles sur le projet';
+  font-size: .9rem;
+}
+
+/* Page médias : cartes visuelles avec miniatures, sans boutons */
+.media-section .resource-grid {
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.media-section .resource-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  min-height: 330px;
+  border-radius: 18px !important;
+  background: linear-gradient(145deg, rgba(30,41,59,.78), rgba(15,23,42,.90)) !important;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+.media-section .resource-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34,211,238,.55) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.26), 0 0 24px rgba(34,211,238,.08) !important;
+}
+
+.media-section .resource-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.30)),
+    url('galaxy-banner.jpg') center / cover no-repeat;
+  border-bottom: 1px solid rgba(99,102,241,.24);
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.media-section .resource-card:hover::before {
+  transform: scale(1.02);
+  filter: brightness(1.06);
+}
+
+/* Miniatures réellement liées aux ressources */
+.media-section .resource-card:has(.resource-link[href*="tiktok.com/"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('IMG_02381.jpg') center 36% / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="franceinfo.fr/"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('6a19a6473d0cb606888244.png') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="ariss-qaf1ndtv7npwkudz"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.30)),
+    url('https://www.google.com/s2/favicons?domain=ariss.org&sz=256') center / 88px 88px no-repeat,
+    url('galaxy-banner.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="essonne.fr/"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('https://raw.githubusercontent.com/espacecamus/espacecamus.github.io/main/adenott.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="cnes.fr/"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('https://raw.githubusercontent.com/espacecamus/espacecamus.github.io/main/cnesmag.JPG') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="actu.fr/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=actu.fr&sz=256') center / 96px 96px no-repeat,
+    linear-gradient(145deg, #7f1d1d, #dc2626 50%, #450a0a);
+}
+
+.media-section .resource-card:has(.resource-link[href*="mesinfos.fr/"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('pesquet.JPG') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="Matinee-rencontre_en_Sorbonne"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.05), rgba(2,6,23,.28)),
+    url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2022/03/premiere_rencontre_avec_le_grand_public_pour_thomas_pesquet_depuis_la_fin_de_sa_mission_alpha/24005386-1-eng-GB/Premiere_rencontre_avec_le_grand_public_pour_Thomas_Pesquet_depuis_la_fin_de_sa_mission_Alpha.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="apmep-iledefrance.fr/Initiation-a-Python"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.22)),
+    url("Capture d'écran 2026-01-30 194330.png") center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="lemonde.fr/sciences/article/2017/03/06/astropi"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.22)),
+    url("Capture d'écran 2026-01-30 194638.png") center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="Des_eleves_ecrivent_les_aventures"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.22)),
+    url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/06/les_eleves_de_la_classe_espace_du_college_albert_camus_et_leurs_enseignants/22056345-2-eng-GB/Les_eleves_de_la_classe_Espace_du_college_Albert_Camus_et_leurs_enseignants_pillars.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="le-republicain.fr/essonne-des-collegiens"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.18)),
+    url('https://www.le-republicain.fr/wp-content/uploads/2020/12/LANORVILLEclassesEspacecreditcollegeAlbertCamus.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="TDH28.pdf"])::before,
+.media-section .resource-card:has(.resource-link[href*="File5.pdf"])::before,
+.media-section .resource-card:has(.resource-link[href*="71cba269744b3079b758e715b678d4ad"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=padlet.com&sz=256') center / 86px 86px no-repeat,
+    linear-gradient(145deg, #f8fafc, #cbd5e1 55%, #94a3b8);
+}
+
+.media-section .resource-card:has(.resource-link[href*="a39c8c934a1b531ce0a42e21a25901cf"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url("Capture d'écran 2026-01-31 101014.png") center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="youtube.com/watch?v=04k4RGNxlgU"])::before {
+  background-image: url('https://img.youtube.com/vi/04k4RGNxlgU/hqdefault.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.media-section .resource-card:has(.resource-link[href*="dailymotion.com/video/x7myzaz"])::before {
+  background-image: url('https://www.dailymotion.com/thumbnail/video/x7myzaz');
+  background-size: cover;
+  background-position: center;
+}
+
+.media-section .resource-card:has(.resource-link[href*="padlet.com/daacversailles"])::before,
+.media-section .resource-card:has(.resource-link[href*="padlet.com/padfse/projet-espace-23-24"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=padlet.com&sz=256') center / 100px 100px no-repeat,
+    linear-gradient(145deg, #312e81, #7c3aed 55%, #0f172a);
+}
+
+.media-section .resource-card:has(.resource-link[href*="digipad.app/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=digipad.app&sz=256') center / 100px 100px no-repeat,
+    linear-gradient(145deg, #164e63, #0891b2 55%, #0f172a);
+}
+
+/* Petites variations pour éviter une grille trop uniforme */
+.media-section .resource-card:nth-child(3n+1)::before {
+  background-position: center 38%;
+}
+.media-section .resource-card:nth-child(3n+2)::before {
+  background-position: center 54%;
+}
+.media-section .resource-card:nth-child(3n)::before {
+  background-position: center 68%;
+}
+
+.media-section .resource-card .resource-type {
+  margin: 16px 18px 0 !important;
+}
+
+.media-section .resource-card h3 {
+  margin: 9px 18px 8px !important;
+  line-height: 1.4;
+}
+
+.media-section .resource-card .resource-source {
+  margin: 0 18px 48px !important;
+  color: #b7c3d7 !important;
+  font-size: .88rem;
+}
+
+/* Le lien couvre maintenant toute la carte : plus aucun bouton visible */
+.media-section .resource-card .resource-link {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: inherit !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  transform: none !important;
+}
+
+.media-section .resource-card::after {
+  content: 'Ouvrir ↗';
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
+  color: #67e8f9;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  body > header:not(.home-space-banner) {
+    min-height: 205px;
+    padding: 38px 14px 42px;
+  }
+
+  body > header:not(.home-space-banner) .header-title {
+    font-size: clamp(2.15rem, 12vw, 3.5rem);
+  }
+
+  body > header:not(.home-space-banner) .header-subtitle {
+    max-width: 92%;
+    padding: 7px 13px;
+    line-height: 1.45;
+    letter-spacing: .09em;
+  }
+
+  .nav-links a[href="medias.html"]::after { font-size: .88rem; }
+  .footer-made::after { font-size: .84rem; }
+  .media-section .resource-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body > header:not(.home-space-banner)::after,
+  body > header:not(.home-space-banner) .header-title {
+    animation: none !important;
+  }
+}
+
+/* Miniature personnalisée : 7e carte, Ferté-Alais 2022 */
+.media-section .resource-card:has(.resource-link[href*="TDH28.pdf"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('helice.JPG') center / cover no-repeat;
+}
+
+/* Ajustements de la grille médias */
+.media-section .resource-grid {
+  gap: 24px !important;
+}
+
+/* Les blocs médias sans sous-titre se suivent sans espace vertical */
+.media-section:not(:has(> h2)) {
+  margin-top: 0 !important;
+}
+
+/* Nouvelle vidéo Sophie Adenot placée en 3e position */
+.media-section:first-of-type .resource-card:nth-child(1) { order: 1; }
+.media-section:first-of-type .resource-card:nth-child(2) { order: 2; }
+.media-section:first-of-type .resource-card.media-saclay-adenot { order: 3; }
+.media-section:first-of-type .resource-card:has(.resource-link[href*="essonne.fr/"]) { order: 4; }
+
+/* Nouveau titre de la carte Sophie Adenot */
+.resource-card.media-saclay-adenot h3 {
+  font-size: 0 !important;
+}
+.resource-card.media-saclay-adenot h3::after {
+  content: 'Direct de Sophie Adenot avec les élèves';
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+/* Ordre commun des premiers onglets */
+.nav-links a[href="index.html"] { order: -3; }
+.nav-links a[href="evenement.html"] { order: -2; }
+.nav-links a[href="medias.html"] { order: -1; }
+
+/* Ordre définitif des onglets de navigation */
+.nav-links a[href="index.html"] { order: 1 !important; }
+.nav-links a[href="evenement.html"] { order: 2 !important; }
+.nav-links a[href="sorties.html"] { order: 3 !important; }
+.nav-links a[href="lectures-applis.html"] { order: 4 !important; }
+.nav-links a[href="sophie-adenot.html"] { order: 5 !important; }
+.nav-links a[href="reportages.html"] { order: 6 !important; }
+.nav-links a[href="astropi.html"] { order: 7 !important; }
+.nav-links a[href*="padlet.com/padfse/ariss"] { order: 8 !important; }
+.nav-links a[href="album.html"] { order: 9 !important; }
+.nav-links a[href="medias.html"] { order: 10 !important; }
