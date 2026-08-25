@@ -117,6 +117,16 @@ body > header:not(.home-space-banner) .header-subtitle {
   order: 99;
 }
 
+/* Libellé commun de la rubrique médias sur toutes les pages */
+.nav-links a[href="medias.html"] {
+  font-size: 0;
+}
+
+.nav-links a[href="medias.html"]::after {
+  content: 'Vidéos & articles sur le projet';
+  font-size: .9rem;
+}
+
 @media (max-width: 700px) {
   body > header:not(.home-space-banner) {
     min-height: 205px;
@@ -132,6 +142,10 @@ body > header:not(.home-space-banner) .header-subtitle {
     padding: 7px 13px;
     line-height: 1.45;
     letter-spacing: .09em;
+  }
+
+  .nav-links a[href="medias.html"]::after {
+    font-size: .88rem;
   }
 }
 
