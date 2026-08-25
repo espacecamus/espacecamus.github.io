@@ -15,7 +15,7 @@ body > header:not(.home-space-banner) {
   border-bottom: 1px solid rgba(103,232,249,.22);
 }
 
-/* Fond totalement fixe : aucun zoom ni déplacement */
+/* Fond totalement fixe : annule explicitement l'ancienne animation de styles.css */
 body > header:not(.home-space-banner)::before {
   content: '';
   position: absolute;
@@ -30,36 +30,52 @@ body > header:not(.home-space-banner)::before {
     url('galaxy-banner.jpg') center / cover no-repeat;
   filter: saturate(1.22) contrast(1.05);
   box-shadow: inset 0 -3px 18px rgba(34,211,238,.16);
+  animation: none !important;
+  transform: none !important;
+  opacity: 1;
 }
 
-/* Étoile filante ponctuelle : le fond reste parfaitement immobile */
+/* Étoile filante : visible brièvement environ toutes les 8 secondes */
 body > header:not(.home-space-banner)::after {
   content: '';
   position: absolute;
-  top: 18%;
-  left: -190px;
-  width: 170px;
+  top: 17%;
+  left: -210px;
+  right: auto !important;
+  bottom: auto !important;
+  width: 190px;
   height: 2px;
   z-index: 1;
   pointer-events: none;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent 0%, rgba(165,243,252,.18) 24%, rgba(224,251,255,.82) 74%, #ffffff 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(165,243,252,.20) 20%, rgba(224,251,255,.94) 72%, #ffffff 100%);
   box-shadow:
-    110px 0 5px 1px rgba(255,255,255,.65),
-    155px 0 8px 2px rgba(103,232,249,.75);
-  filter: drop-shadow(0 0 7px rgba(103,232,249,.75));
+    128px 0 7px 1px rgba(255,255,255,.82),
+    176px 0 11px 2px rgba(103,232,249,.92);
+  filter: drop-shadow(0 0 9px rgba(103,232,249,.88));
   opacity: 0;
   transform: rotate(-13deg) translate3d(0,0,0);
-  animation: shooting-star 12s linear infinite;
+  animation: shooting-star 8s linear infinite !important;
 }
 
 @keyframes shooting-star {
-  0%, 68% { opacity: 0; transform: rotate(-13deg) translate3d(0,0,0); }
-  70% { opacity: 0; }
-  72% { opacity: 1; }
-  78% { opacity: .95; transform: rotate(-13deg) translate3d(72vw, 105px, 0); }
-  82% { opacity: 0; transform: rotate(-13deg) translate3d(118vw, 172px, 0); }
-  100% { opacity: 0; transform: rotate(-13deg) translate3d(118vw, 172px, 0); }
+  0%, 10% {
+    opacity: 0;
+    transform: rotate(-13deg) translate3d(0,0,0);
+  }
+  12% { opacity: 1; }
+  23% {
+    opacity: 1;
+    transform: rotate(-13deg) translate3d(72vw,105px,0);
+  }
+  31% {
+    opacity: 0;
+    transform: rotate(-13deg) translate3d(122vw,178px,0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-13deg) translate3d(122vw,178px,0);
+  }
 }
 
 body > header:not(.home-space-banner) .header-title {
