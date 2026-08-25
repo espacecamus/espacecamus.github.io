@@ -204,7 +204,97 @@ body > header:not(.home-space-banner) .header-subtitle {
   filter: brightness(1.06);
 }
 
-/* Vraies miniatures lorsqu'elles sont stables */
+/* Miniatures réellement liées aux ressources */
+.media-section .resource-card:has(.resource-link[href*="tiktok.com/"])::before {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.20)),
+    url('https://www.google.com/s2/favicons?domain=tiktok.com&sz=256') center / 92px 92px no-repeat,
+    linear-gradient(120deg, #14213d 0 33%, #f8fafc 33% 66%, #d90429 66% 100%);
+}
+
+.media-section .resource-card:has(.resource-link[href*="franceinfo.fr/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=franceinfo.fr&sz=256') center / 96px 96px no-repeat,
+    radial-gradient(circle at 65% 42%, rgba(255,214,0,.35), transparent 23%),
+    linear-gradient(135deg, #081f4d, #123a7a 58%, #07152f);
+}
+
+.media-section .resource-card:has(.resource-link[href*="ariss-qaf1ndtv7npwkudz"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.30)),
+    url('https://www.google.com/s2/favicons?domain=ariss.org&sz=256') center / 88px 88px no-repeat,
+    url('galaxy-banner.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="essonne.fr/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=essonne.fr&sz=256') center / 100px 100px no-repeat,
+    linear-gradient(145deg, #064e3b, #0369a1 55%, #172554);
+}
+
+.media-section .resource-card:has(.resource-link[href*="cnes.fr/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=cnes.fr&sz=256') center / 105px 105px no-repeat,
+    radial-gradient(circle at 30% 40%, rgba(34,211,238,.25), transparent 24%),
+    url('galaxy-banner.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="actu.fr/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=actu.fr&sz=256') center / 96px 96px no-repeat,
+    linear-gradient(145deg, #7f1d1d, #dc2626 50%, #450a0a);
+}
+
+.media-section .resource-card:has(.resource-link[href*="mesinfos.fr/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=mesinfos.fr&sz=256') center / 96px 96px no-repeat,
+    linear-gradient(145deg, #0f172a, #1d4ed8 55%, #0c4a6e);
+}
+
+.media-section .resource-card:has(.resource-link[href*="Matinee-rencontre_en_Sorbonne"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.05), rgba(2,6,23,.28)),
+    url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2022/03/premiere_rencontre_avec_le_grand_public_pour_thomas_pesquet_depuis_la_fin_de_sa_mission_alpha/24005386-1-eng-GB/Premiere_rencontre_avec_le_grand_public_pour_Thomas_Pesquet_depuis_la_fin_de_sa_mission_Alpha.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="apmep-iledefrance.fr/Initiation-a-Python"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.22)),
+    url("Capture d'écran 2026-01-30 194330.png") center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="lemonde.fr/sciences/article/2017/03/06/astropi"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.22)),
+    url("Capture d'écran 2026-01-30 194638.png") center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="Des_eleves_ecrivent_les_aventures"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.04), rgba(2,6,23,.22)),
+    url('https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/06/les_eleves_de_la_classe_espace_du_college_albert_camus_et_leurs_enseignants/22056345-2-eng-GB/Les_eleves_de_la_classe_Espace_du_college_Albert_Camus_et_leurs_enseignants_pillars.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="le-republicain.fr/essonne-des-collegiens"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.18)),
+    url('https://www.le-republicain.fr/wp-content/uploads/2020/12/LANORVILLEclassesEspacecreditcollegeAlbertCamus.jpg') center / cover no-repeat;
+}
+
+.media-section .resource-card:has(.resource-link[href*="TDH28.pdf"])::before,
+.media-section .resource-card:has(.resource-link[href*="File5.pdf"])::before,
+.media-section .resource-card:has(.resource-link[href*="71cba269744b3079b758e715b678d4ad"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=padlet.com&sz=256') center / 86px 86px no-repeat,
+    linear-gradient(145deg, #f8fafc, #cbd5e1 55%, #94a3b8);
+}
+
+.media-section .resource-card:has(.resource-link[href*="a39c8c934a1b531ce0a42e21a25901cf"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url("Capture d'écran 2026-01-31 101014.png") center / cover no-repeat;
+}
+
 .media-section .resource-card:has(.resource-link[href*="youtube.com/watch?v=04k4RGNxlgU"])::before {
   background-image: url('https://img.youtube.com/vi/04k4RGNxlgU/hqdefault.jpg');
   background-size: cover;
@@ -215,6 +305,19 @@ body > header:not(.home-space-banner) .header-subtitle {
   background-image: url('https://www.dailymotion.com/thumbnail/video/x7myzaz');
   background-size: cover;
   background-position: center;
+}
+
+.media-section .resource-card:has(.resource-link[href*="padlet.com/daacversailles"])::before,
+.media-section .resource-card:has(.resource-link[href*="padlet.com/padfse/projet-espace-23-24"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=padlet.com&sz=256') center / 100px 100px no-repeat,
+    linear-gradient(145deg, #312e81, #7c3aed 55%, #0f172a);
+}
+
+.media-section .resource-card:has(.resource-link[href*="digipad.app/"])::before {
+  background:
+    url('https://www.google.com/s2/favicons?domain=digipad.app&sz=256') center / 100px 100px no-repeat,
+    linear-gradient(145deg, #164e63, #0891b2 55%, #0f172a);
 }
 
 /* Petites variations pour éviter une grille trop uniforme */
