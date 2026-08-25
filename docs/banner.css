@@ -102,6 +102,12 @@ body > header:not(.home-space-banner) .header-subtitle {
   text-shadow: 0 1px 7px rgba(0,0,0,.95);
 }
 
+/* Onglets retirés de la navigation */
+.nav-links a[href="projets.html"],
+.nav-links a[href="remerciements.html"] {
+  display: none !important;
+}
+
 @media (max-width: 700px) {
   body > header:not(.home-space-banner) {
     min-height: 205px;
