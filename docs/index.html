@@ -6,13 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projet Espace – Accueil</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════
    BANNIÈRE CINÉMATOGRAPHIQUE — PAGE D'ACCUEIL
    ═══════════════════════════════════════════════════════════════ */
 .home-space-banner {
-  min-height: clamp(390px, 52vw, 620px);
-  padding: clamp(76px, 10vw, 132px) 22px 82px;
+  min-height: clamp(280px, 34vw, 400px);
+  padding: clamp(50px, 6vw, 72px) 22px clamp(44px, 5vw, 62px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +51,7 @@
   left: 50%;
   top: 48%;
   width: min(900px, 90vw);
-  height: min(320px, 34vw);
+  height: min(250px, 28vw);
   transform: translate(-50%, -50%);
   background: radial-gradient(ellipse, rgba(56,189,248,.10) 0%, rgba(99,102,241,.075) 34%, transparent 70%);
   filter: blur(4px);
@@ -111,8 +114,8 @@
   z-index: -1;
   left: 50%;
   top: 50%;
-  width: min(960px, 88vw);
-  aspect-ratio: 3.25 / 1;
+  width: min(900px, 88vw);
+  aspect-ratio: 3.5 / 1;
   border: 1px solid rgba(165,243,252,.20);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotate(-8deg);
@@ -121,7 +124,7 @@
 }
 
 .orbit-ring.orbit-2 {
-  width: min(1160px, 103vw);
+  width: min(1080px, 103vw);
   opacity: .54;
   transform: translate(-50%, -50%) rotate(11deg);
 }
@@ -142,9 +145,9 @@
 .space-planet {
   position: absolute;
   z-index: -1;
-  left: clamp(-105px, -7vw, -40px);
-  bottom: clamp(-130px, -8vw, -72px);
-  width: clamp(210px, 25vw, 350px);
+  left: clamp(-90px, -6vw, -36px);
+  bottom: clamp(-118px, -8vw, -68px);
+  width: clamp(180px, 21vw, 285px);
   aspect-ratio: 1;
   border-radius: 50%;
   background:
@@ -168,38 +171,6 @@
   border-radius: 50%;
   transform: scaleY(.33) rotate(-14deg);
   box-shadow: 0 0 26px rgba(34,211,238,.10);
-}
-
-/* Fusée */
-.space-rocket {
-  position: absolute;
-  z-index: 1;
-  right: clamp(28px, 9vw, 150px);
-  top: clamp(40px, 8vw, 100px);
-  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
-  transform: rotate(-36deg);
-  filter: drop-shadow(0 0 12px rgba(255,255,255,.42)) drop-shadow(0 0 24px rgba(34,211,238,.34));
-  animation: rocket-flight 4.8s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.space-rocket::after {
-  content: '';
-  position: absolute;
-  width: clamp(70px, 10vw, 140px);
-  height: 3px;
-  left: -78%;
-  top: 67%;
-  background: linear-gradient(90deg, transparent, rgba(124,58,237,.20), rgba(34,211,238,.86), rgba(255,255,255,.95));
-  border-radius: 999px;
-  filter: blur(.3px);
-  transform: rotate(2deg);
-  box-shadow: 0 0 16px rgba(34,211,238,.48);
-}
-
-@keyframes rocket-flight {
-  0%, 100% { transform: translate3d(0,0,0) rotate(-36deg); }
-  50% { transform: translate3d(-9px,-14px,0) rotate(-33deg); }
 }
 
 /* Étoiles filantes */
@@ -239,46 +210,15 @@
   text-align: center;
 }
 
-.mission-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-bottom: 18px;
-  padding: 6px 13px;
-  border-radius: 999px;
-  border: 1px solid rgba(103,232,249,.28);
-  background: rgba(4,12,30,.36);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #a5f3fc;
-  font-size: clamp(.64rem, 1.2vw, .76rem);
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  box-shadow: 0 0 28px rgba(34,211,238,.08);
-}
-
-.mission-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22d3ee;
-  box-shadow: 0 0 10px #22d3ee;
-  animation: mission-pulse 1.8s ease-in-out infinite;
-}
-
-@keyframes mission-pulse {
-  50% { opacity: .4; box-shadow: 0 0 3px #22d3ee; }
-}
-
 .home-space-banner .header-title {
   position: relative;
   margin: 0;
-  font-size: clamp(3.1rem, 8.6vw, 7.2rem);
-  font-weight: 850;
-  letter-spacing: .025em;
-  line-height: .92;
-  text-transform: none;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  font-size: clamp(2.6rem, 7.2vw, 5.8rem);
+  font-weight: 700;
+  letter-spacing: .075em;
+  line-height: 1;
+  text-transform: uppercase;
   background: linear-gradient(100deg, #ffffff 0%, #eefcff 20%, #a5f3fc 43%, #c4b5fd 65%, #ffffff 86%);
   background-size: 240% auto;
   -webkit-background-clip: text;
@@ -294,9 +234,9 @@
 .home-space-banner .header-title::after {
   content: '';
   display: block;
-  width: min(520px, 68vw);
+  width: min(460px, 62vw);
   height: 1px;
-  margin: 24px auto 0;
+  margin: 18px auto 0;
   background: linear-gradient(90deg, transparent, rgba(165,243,252,.32), rgba(255,255,255,.86), rgba(165,243,252,.32), transparent);
   box-shadow: 0 0 12px rgba(34,211,238,.36);
 }
@@ -308,26 +248,26 @@
 
 .home-space-banner .header-subtitle {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 22px;
+  margin-top: 16px;
+  padding: 8px 20px;
   border-radius: 999px;
   border: 1px solid rgba(196,181,253,.24);
   background: linear-gradient(90deg, rgba(2,6,23,.34), rgba(30,27,75,.26), rgba(2,6,23,.34));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: #f1f5ff;
-  font-size: clamp(.74rem, 1.85vw, 1.08rem);
+  font-size: clamp(.72rem, 1.55vw, .98rem);
   font-weight: 650;
-  letter-spacing: .16em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   text-shadow: 0 1px 7px rgba(0,0,0,.95);
   box-shadow: inset 0 0 20px rgba(99,102,241,.05), 0 0 26px rgba(99,102,241,.08);
 }
 
 .hero-tagline {
-  margin: 18px auto 0;
+  margin: 14px auto 0;
   color: rgba(226,232,240,.76);
-  font-size: clamp(.76rem, 1.35vw, .92rem);
+  font-size: clamp(.72rem, 1.2vw, .86rem);
   letter-spacing: .10em;
   text-transform: uppercase;
 }
@@ -373,29 +313,25 @@
 
 @media (max-width: 760px) {
   .home-space-banner {
-    min-height: 410px;
-    padding: 86px 14px 72px;
+    min-height: 290px;
+    padding: 62px 14px 50px;
   }
   .home-space-banner .header-title {
-    font-size: clamp(3rem, 15vw, 5rem);
-    line-height: .95;
+    font-size: clamp(2.35rem, 12vw, 4rem);
+    line-height: 1;
+    letter-spacing: .055em;
   }
   .home-space-banner .header-subtitle {
     max-width: 94%;
-    padding: 9px 15px;
-    line-height: 1.55;
-    letter-spacing: .10em;
+    padding: 8px 14px;
+    line-height: 1.5;
+    letter-spacing: .09em;
   }
   .hero-tagline { display: none; }
   .space-planet {
-    width: 210px;
-    left: -90px;
-    bottom: -98px;
-  }
-  .space-rocket {
-    right: 18px;
-    top: 54px;
-    font-size: 2.9rem;
+    width: 175px;
+    left: -78px;
+    bottom: -86px;
   }
   .orbit-ring { width: 105vw; }
   .orbit-ring.orbit-2 { width: 128vw; }
@@ -406,9 +342,7 @@
 @media (prefers-reduced-motion: reduce) {
   .home-space-banner::before,
   .space-stars,
-  .space-rocket,
   .shooting-star,
-  .mission-dot,
   .home-space-banner .header-title {
     animation: none !important;
   }
@@ -421,7 +355,6 @@
   <div class="orbit-ring" aria-hidden="true"></div>
   <div class="orbit-ring orbit-2" aria-hidden="true"></div>
   <div class="space-planet" aria-hidden="true"></div>
-  <div class="space-rocket" aria-hidden="true">🚀</div>
   <div class="shooting-star one" aria-hidden="true"></div>
   <div class="shooting-star two" aria-hidden="true"></div>
 
@@ -435,7 +368,6 @@
   </div>
 
   <div class="hero-content">
-    <div class="mission-label"><span class="mission-dot"></span> Mission Albert Camus</div>
     <div class="header-title">Projet Espace</div>
     <div class="header-subtitle">Collège Albert Camus - La Norville</div>
     <div class="hero-tagline">Exploration • Sciences • Innovation • Rêver plus loin</div>
