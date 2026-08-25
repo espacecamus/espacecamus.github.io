@@ -7,6 +7,65 @@
 <title>Projet Espace – AstroPi</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="banner.css">
+<style>
+.astropi-intro {
+  margin: 0 0 28px;
+  padding: 24px;
+  border: 1px solid rgba(99,102,241,.30);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(30,41,59,.76), rgba(15,23,42,.84));
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+.astropi-intro h3 { margin-top: 0; }
+.astropi-missions {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+  margin: 20px 0 0;
+}
+.astropi-mission {
+  padding: 17px;
+  border-radius: 14px;
+  background: rgba(2,6,23,.38);
+  border: 1px solid rgba(34,211,238,.20);
+}
+.astropi-mission strong { color: #a5f3fc; }
+.video-card {
+  margin: 30px 0 36px;
+  padding: 22px;
+  border: 1px solid rgba(99,102,241,.28);
+  border-radius: 18px;
+  background: linear-gradient(145deg,rgba(30,41,59,.70),rgba(15,23,42,.82));
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+.video-card h3 { margin-top: 0; }
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #000;
+  margin-top: 16px;
+}
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.session-box {
+  margin: 28px 0;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(15,23,42,.44);
+  border: 1px solid rgba(99,102,241,.22);
+}
+.session-box h3 { margin-top: 0; }
+@media(max-width:720px){.astropi-missions{grid-template-columns:1fr}.astropi-intro,.video-card{padding:18px}}
+</style>
 </head>
 <body>
 <header><div class="header-title">Projet Espace</div><div class="header-subtitle">Collège Albert Camus – La Norville</div></header>
@@ -25,18 +84,40 @@
 <a href="https://padlet.com/padfse/ariss-qaf1ndtv7npwkudz" target="_blank">ARISS</a>
 <a href="maquette.html">Maquette</a>
 </div></nav>
+
 <section>
 <h2>AstroPi</h2>
-<h3>Description</h3>
-<p>Le challenge AstroPi, proposé par l'ESA (European Space Agency, en français : Agence spatiale européenne), invite les jeunes à relever un défi exceptionnel : programmer une expérience scientifique qui sera envoyée à bord de la Station spatiale internationale. C'est une aventure unique qui mêle créativité, esprit d'équipe et découverte des sciences du numérique. Les participants ont l'opportunité de concevoir un véritable projet d'astronaute, réalisé dans des conditions réelles en orbite. Ce challenge inspire à la fois la rigueur scientifique et le rêve spatial, offrant à chacun la chance de contribuer, à son échelle, à l'exploration de l'espace.</p>
-<p>Un Raspberry Pi est un petit ordinateur polyvalent, conçu pour apprendre la programmation et réaliser toutes sortes de projets électroniques. Associé au module Sense HAT, il devient encore plus puissant. Le Sense HAT possède des capteurs capables de mesurer la température, l'humidité, la pression, l'orientation ou encore les mouvements. Il inclut aussi une matrice de LEDs pour afficher des informations. Ensemble, ces outils permettent de créer des expériences scientifiques, des jeux, ou même des projets destinés à fonctionner dans l'espace, comme ceux du challenge AstroPi.</p>
-<h3>Séances</h3>
-<p>Vous pourrez retrouver ci-dessous quelques photos prises lors des séances "AstroPi". Cliquez sur une photo pour l'agrandir.</p>
-<p>1ère séance pour les 3èmes, ce mardi 27/01/2026, où ils ont pu programmer un "Space Invader", puis, pour les groupes qui avaient eu le temps, ils ont pu programmer des animations. Tous les programmes doivent être sur le thème de la faune et la flore, pour qu'ils puissent ensuite être envoyés dans la station spatiale.</p>
-<p>Ci-dessous, vous pouvez retrouver les micro-ordinateurs Raspberry Pi, certains sont même en train d'afficher des programmes sur les photos.</p>
+
+<div class="astropi-intro">
+  <h3>Qu’est-ce que le concours AstroPi ?</h3>
+  <p><strong>Le European Astro Pi Challenge</strong> est un projet éducatif gratuit proposé par l’Agence spatiale européenne (ESA) en collaboration avec la Raspberry Pi Foundation. Il permet aux jeunes d’apprendre la programmation en Python tout en participant à une véritable aventure spatiale : les programmes validés sont envoyés sur des ordinateurs Raspberry Pi installés à bord de la Station spatiale internationale.</p>
+  <p>Les Astro Pi sont de petits ordinateurs spécialement équipés de capteurs, d’une caméra et d’une matrice de 64 LED. Les élèves peuvent ainsi créer des programmes, afficher des images, effectuer des mesures ou exploiter de vraies données recueillies depuis l’ISS.</p>
+  <div class="astropi-missions">
+    <div class="astropi-mission"><strong>Mission Zero</strong><br>Un défi accessible aux débutants : les élèves programment une image ou une animation en pixels et utilisent les capteurs de l’Astro Pi. Les programmes conformes peuvent être exécutés dans l’ISS.</div>
+    <div class="astropi-mission"><strong>Mission Space Lab</strong><br>Un défi plus scientifique pour les élèves plus expérimentés : ils utilisent les capteurs ou la caméra de l’Astro Pi afin de réaliser une véritable investigation scientifique à bord de la Station spatiale internationale.</div>
+  </div>
+  <p style="margin-bottom:0;margin-top:18px;">AstroPi associe ainsi programmation, sciences, travail en équipe et exploration spatiale, avec une expérience particulièrement motivante : voir son propre code fonctionner à environ 400 km au-dessus de la Terre.</p>
+</div>
+
+<div class="video-card">
+  <h3>Découvrir AstroPi en vidéo</h3>
+  <p>Une courte vidéo pour comprendre le principe du projet et découvrir comment la programmation peut rejoindre l’espace.</p>
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/DzGGvNwUwIM?rel=0" title="Découvrir le concours AstroPi" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="session-box">
+<h3>Les séances AstroPi au collège</h3>
+<p>Les élèves découvrent progressivement la programmation sur Raspberry Pi et réalisent leurs premiers programmes avant de préparer leurs productions pour le challenge.</p>
+<p>Lors de la première séance des élèves de 3e, le mardi 27 janvier 2026, ils ont notamment programmé un « Space Invader », puis créé différentes animations. Les productions ont ensuite été adaptées au thème de la faune et de la flore afin de préparer leur participation à AstroPi.</p>
+</div>
+
 <h3>Les AstroPi du collège</h3>
+<p>Quelques images du matériel utilisé pendant les séances. Cliquez sur une photo pour l’agrandir.</p>
 <div class="gallery"><div class="gallery-item"><img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi"></div><div class="gallery-item"><img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi"></div></div>
 </section>
+
 <div id="lightbox" class="lightbox"><span class="lightbox-close">&times;</span><span id="lightbox-title" class="lightbox-title"></span><span class="lightbox-nav lightbox-prev">&#8249;</span><img id="lightbox-img" src="" alt=""><span class="lightbox-nav lightbox-next">&#8250;</span></div>
 <script>
 const lightbox=document.getElementById('lightbox');const lightboxImg=document.getElementById('lightbox-img');const lightboxTitle=document.getElementById('lightbox-title');const imgs=Array.from(document.querySelectorAll('.gallery-item img'));let currentIndex=0;function getGroupTitle(img){let el=img.closest('.gallery');while((el=el.previousElementSibling)){if(el.tagName==='H3')return el.textContent;}return '';}function openAt(index){currentIndex=(index+imgs.length)%imgs.length;lightboxImg.src=imgs[currentIndex].src;lightboxImg.alt=imgs[currentIndex].alt;lightboxTitle.textContent=getGroupTitle(imgs[currentIndex]);lightbox.classList.add('open');}imgs.forEach((img,i)=>img.addEventListener('click',()=>openAt(i)));document.querySelector('.lightbox-prev').addEventListener('click',e=>{e.stopPropagation();openAt(currentIndex-1);});document.querySelector('.lightbox-next').addEventListener('click',e=>{e.stopPropagation();openAt(currentIndex+1);});lightbox.addEventListener('click',e=>{if(!e.target.closest('.lightbox-nav')&&e.target!==lightboxImg)lightbox.classList.remove('open');});document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('open'))return;if(e.key==='Escape')lightbox.classList.remove('open');if(e.key==='ArrowLeft')openAt(currentIndex-1);if(e.key==='ArrowRight')openAt(currentIndex+1);});
