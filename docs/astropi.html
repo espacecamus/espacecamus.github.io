@@ -9,95 +9,38 @@
 <link rel="stylesheet" href="banner.css">
 </head>
 <body>
-<header>
-<div class="header-title">Projet Espace</div>
-<div class="header-subtitle">Collège Albert Camus – La Norville</div>
-</header>
-
+<header><div class="header-title">Projet Espace</div><div class="header-subtitle">Collège Albert Camus – La Norville</div></header>
 <nav>
-<label class="nav-toggle" for="nav-check">&#9776; Navigation</label>
-<input type="checkbox" id="nav-check" class="nav-check">
+<label class="nav-toggle" for="nav-check">&#9776; Navigation</label><input type="checkbox" id="nav-check" class="nav-check">
 <div class="nav-links">
 <a href="index.html">Accueil</a>
 <a href="evenement.html">Agenda 2026-27</a>
 <a href="sophie-adenot.html">Sophie Adenot</a>
 <a href="album.html">Album</a>
-<a href="medias.html">Vidéos &amp; articles</a>
+<a href="medias.html">Vidéos &amp; articles sur le projet</a>
 <a href="reportages.html">Reportages</a>
 <a href="sorties.html">Idées sorties</a>
+<a href="lectures-applis.html">Idées lectures &amp; applis</a>
 <a href="astropi.html" class="active">AstroPi</a>
 <a href="https://padlet.com/padfse/ariss-qaf1ndtv7npwkudz" target="_blank">ARISS</a>
 <a href="maquette.html">Maquette</a>
-</div>
-</nav>
-
+</div></nav>
 <section>
 <h2>AstroPi</h2>
 <h3>Description</h3>
 <p>Le challenge AstroPi, proposé par l'ESA (European Space Agency, en français : Agence spatiale européenne), invite les jeunes à relever un défi exceptionnel : programmer une expérience scientifique qui sera envoyée à bord de la Station spatiale internationale. C'est une aventure unique qui mêle créativité, esprit d'équipe et découverte des sciences du numérique. Les participants ont l'opportunité de concevoir un véritable projet d'astronaute, réalisé dans des conditions réelles en orbite. Ce challenge inspire à la fois la rigueur scientifique et le rêve spatial, offrant à chacun la chance de contribuer, à son échelle, à l'exploration de l'espace.</p>
 <p>Un Raspberry Pi est un petit ordinateur polyvalent, conçu pour apprendre la programmation et réaliser toutes sortes de projets électroniques. Associé au module Sense HAT, il devient encore plus puissant. Le Sense HAT possède des capteurs capables de mesurer la température, l'humidité, la pression, l'orientation ou encore les mouvements. Il inclut aussi une matrice de LEDs pour afficher des informations. Ensemble, ces outils permettent de créer des expériences scientifiques, des jeux, ou même des projets destinés à fonctionner dans l'espace, comme ceux du challenge AstroPi.</p>
-
 <h3>Séances</h3>
 <p>Vous pourrez retrouver ci-dessous quelques photos prises lors des séances "AstroPi". Cliquez sur une photo pour l'agrandir.</p>
 <p>1ère séance pour les 3èmes, ce mardi 27/01/2026, où ils ont pu programmer un "Space Invader", puis, pour les groupes qui avaient eu le temps, ils ont pu programmer des animations. Tous les programmes doivent être sur le thème de la faune et la flore, pour qu'ils puissent ensuite être envoyés dans la station spatiale.</p>
 <p>Ci-dessous, vous pouvez retrouver les micro-ordinateurs Raspberry Pi, certains sont même en train d'afficher des programmes sur les photos.</p>
-
 <h3>Les AstroPi du collège</h3>
-<div class="gallery">
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
-  </div>
-</div>
+<div class="gallery"><div class="gallery-item"><img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi"></div><div class="gallery-item"><img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi"></div></div>
 </section>
-
-<div id="lightbox" class="lightbox">
-  <span class="lightbox-close">&times;</span>
-  <span id="lightbox-title" class="lightbox-title"></span>
-  <span class="lightbox-nav lightbox-prev">&#8249;</span>
-  <img id="lightbox-img" src="" alt="">
-  <span class="lightbox-nav lightbox-next">&#8250;</span>
-</div>
-
+<div id="lightbox" class="lightbox"><span class="lightbox-close">&times;</span><span id="lightbox-title" class="lightbox-title"></span><span class="lightbox-nav lightbox-prev">&#8249;</span><img id="lightbox-img" src="" alt=""><span class="lightbox-nav lightbox-next">&#8250;</span></div>
 <script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxTitle = document.getElementById('lightbox-title');
-const imgs = Array.from(document.querySelectorAll('.gallery-item img'));
-let currentIndex = 0;
-function getGroupTitle(img) {
-  let el = img.closest('.gallery');
-  while ((el = el.previousElementSibling)) {
-    if (el.tagName === 'H3') return el.textContent;
-  }
-  return '';
-}
-function openAt(index) {
-  currentIndex = (index + imgs.length) % imgs.length;
-  lightboxImg.src = imgs[currentIndex].src;
-  lightboxImg.alt = imgs[currentIndex].alt;
-  lightboxTitle.textContent = getGroupTitle(imgs[currentIndex]);
-  lightbox.classList.add('open');
-}
-imgs.forEach((img, i) => img.addEventListener('click', () => openAt(i)));
-document.querySelector('.lightbox-prev').addEventListener('click', e => { e.stopPropagation(); openAt(currentIndex - 1); });
-document.querySelector('.lightbox-next').addEventListener('click', e => { e.stopPropagation(); openAt(currentIndex + 1); });
-lightbox.addEventListener('click', e => {
-  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) lightbox.classList.remove('open');
-});
-document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape') lightbox.classList.remove('open');
-  if (e.key === 'ArrowLeft') openAt(currentIndex - 1);
-  if (e.key === 'ArrowRight') openAt(currentIndex + 1);
-});
+const lightbox=document.getElementById('lightbox');const lightboxImg=document.getElementById('lightbox-img');const lightboxTitle=document.getElementById('lightbox-title');const imgs=Array.from(document.querySelectorAll('.gallery-item img'));let currentIndex=0;function getGroupTitle(img){let el=img.closest('.gallery');while((el=el.previousElementSibling)){if(el.tagName==='H3')return el.textContent;}return '';}function openAt(index){currentIndex=(index+imgs.length)%imgs.length;lightboxImg.src=imgs[currentIndex].src;lightboxImg.alt=imgs[currentIndex].alt;lightboxTitle.textContent=getGroupTitle(imgs[currentIndex]);lightbox.classList.add('open');}imgs.forEach((img,i)=>img.addEventListener('click',()=>openAt(i)));document.querySelector('.lightbox-prev').addEventListener('click',e=>{e.stopPropagation();openAt(currentIndex-1);});document.querySelector('.lightbox-next').addEventListener('click',e=>{e.stopPropagation();openAt(currentIndex+1);});lightbox.addEventListener('click',e=>{if(!e.target.closest('.lightbox-nav')&&e.target!==lightboxImg)lightbox.classList.remove('open');});document.addEventListener('keydown',e=>{if(!lightbox.classList.contains('open'))return;if(e.key==='Escape')lightbox.classList.remove('open');if(e.key==='ArrowLeft')openAt(currentIndex-1);if(e.key==='ArrowRight')openAt(currentIndex+1);});
 </script>
-
-<footer>
-  <p class="footer-title">© Projet Espace — Collège Albert Camus de La Norville</p>
-  <p class="footer-made">🛸 Site réalisé avec passion par <strong>Valentin</strong> et <strong>Mati</strong>, élèves en classe de <strong>3ème Espace</strong> ✨</p>
-</footer>
+<footer><p class="footer-title">© Projet Espace — Collège Albert Camus de La Norville</p><p class="footer-made">🛸 Site réalisé avec passion par <strong>Valentin</strong> et <strong>Mati</strong>, élèves en classe de <strong>3ème Espace</strong> ✨</p></footer>
 </body>
 </html>
