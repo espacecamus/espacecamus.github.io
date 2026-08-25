@@ -41,7 +41,8 @@
 }
 .book-card h3 { margin: 0 0 8px; }
 .book-author { color: #a5b4fc; font-weight: 700; margin: 0 0 12px; }
-.book-link {
+.book-link,
+.app-link {
   display: inline-block;
   margin-top: 8px;
   padding: 10px 16px;
@@ -53,15 +54,54 @@
   box-shadow: 0 8px 24px rgba(6,182,212,.18);
 }
 .apps-box {
-  margin-top: 36px;
-  padding: 22px;
+  margin-top: 42px;
+  padding: 24px;
   border: 1px solid rgba(34,211,238,.25);
-  border-radius: 16px;
+  border-radius: 18px;
   background: rgba(15,23,42,.55);
 }
 .apps-box h2 { margin-top: 0; }
+.apps-intro { color: #cbd5e1; margin-bottom: 22px; }
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.app-card {
+  padding: 20px;
+  border: 1px solid rgba(99,102,241,.28);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(30,41,59,.72), rgba(15,23,42,.82));
+  box-shadow: 0 10px 28px rgba(0,0,0,.14);
+}
+.app-card h3 { margin: 8px 0 10px; }
+.app-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(34,211,238,.10);
+  border: 1px solid rgba(34,211,238,.25);
+  color: #a5f3fc;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+.app-free {
+  color: #a5b4fc;
+  font-size: .92rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.app-tip {
+  margin-top: 20px;
+  padding: 15px 17px;
+  border-left: 3px solid #22d3ee;
+  border-radius: 10px;
+  background: rgba(34,211,238,.07);
+  color: #dbeafe;
+}
 @media (max-width: 900px) {
-  .book-grid { grid-template-columns: 1fr; }
+  .book-grid, .app-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .book-card { grid-template-columns: 1fr; }
@@ -175,7 +215,43 @@
 
 <div class="apps-box">
   <h2>Applications pour téléphone</h2>
-  <p>Cette partie sera enrichie prochainement avec une sélection d’applications utiles pour observer le ciel, reconnaître les constellations et suivre l’actualité spatiale.</p>
+  <p class="apps-intro">Quatre applications simples pour lever les yeux vers le ciel, reconnaître les étoiles et les constellations ou ne pas manquer le prochain passage de la Station spatiale internationale.</p>
+
+  <div class="app-grid">
+    <article class="app-card">
+      <span class="app-tag">Suivre l’ISS</span>
+      <h3>Spot the Station – NASA</h3>
+      <p class="app-free">Gratuite · application officielle de la NASA</p>
+      <p>Elle indique les prochains passages visibles de l’ISS depuis votre position, affiche sa trajectoire et peut envoyer une alerte avant son passage. Idéale pour savoir exactement quand sortir observer la Station spatiale.</p>
+      <a class="app-link" href="https://www.nasa.gov/spot-the-station/" target="_blank" rel="noopener noreferrer">Découvrir Spot the Station</a>
+    </article>
+
+    <article class="app-card">
+      <span class="app-tag">Reconnaître le ciel</span>
+      <h3>Stellarium Mobile</h3>
+      <p class="app-free">Gratuite · options Plus facultatives</p>
+      <p>Pointez simplement le téléphone vers le ciel : l’application permet d’identifier les étoiles, constellations, planètes, comètes et même certains satellites comme l’ISS. Très claire et très pédagogique.</p>
+      <a class="app-link" href="https://www.stellarium-labs.com/stellarium-mobile-plus/" target="_blank" rel="noopener noreferrer">Découvrir Stellarium</a>
+    </article>
+
+    <article class="app-card">
+      <span class="app-tag">Que voir ce soir ?</span>
+      <h3>Sky Tonight</h3>
+      <p class="app-free">Gratuite · options Premium facultatives</p>
+      <p>Une carte du ciel interactive qui montre ce qui est visible au-dessus de vous. Elle aide aussi à repérer les événements astronomiques à venir : pluie d’étoiles filantes, conjonctions, éclipses ou planètes visibles.</p>
+      <a class="app-link" href="https://vitotechnology.com/apps/sky-tonight" target="_blank" rel="noopener noreferrer">Découvrir Sky Tonight</a>
+    </article>
+
+    <article class="app-card">
+      <span class="app-tag">Carte du ciel ludique</span>
+      <h3>Star Walk 2 Plus</h3>
+      <p class="app-free">Gratuite · publicités et options payantes facultatives</p>
+      <p>Très visuelle et facile à prendre en main : il suffit de pointer le téléphone vers le ciel pour reconnaître étoiles, planètes et constellations. Une bonne application pour débuter et donner envie d’observer.</p>
+      <a class="app-link" href="https://vitotechnology.com/apps/star-walk-2" target="_blank" rel="noopener noreferrer">Découvrir Star Walk 2</a>
+    </article>
+  </div>
+
+  <div class="app-tip"><strong>Pour commencer :</strong> Spot the Station est parfaite pour suivre l’ISS ; Stellarium Mobile est celle que nous conseillons en priorité pour apprendre à reconnaître ce que l’on voit dans le ciel.</div>
 </div>
 </section>
 
