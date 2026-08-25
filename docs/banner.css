@@ -400,3 +400,10 @@ body > header:not(.home-space-banner) .header-subtitle {
     animation: none !important;
   }
 }
+
+/* Miniature personnalisée : 7e carte, Ferté-Alais 2022 */
+.media-section .resource-card:has(.resource-link[href*="TDH28.pdf"])::before {
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('helice.JPG') center / cover no-repeat;
+}
