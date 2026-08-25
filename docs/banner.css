@@ -226,8 +226,8 @@ body > header:not(.home-space-banner) .header-subtitle {
 
 .media-section .resource-card:has(.resource-link[href*="essonne.fr/"])::before {
   background:
-    url('https://www.google.com/s2/favicons?domain=essonne.fr&sz=256') center / 100px 100px no-repeat,
-    linear-gradient(145deg, #064e3b, #0369a1 55%, #172554);
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('https://raw.githubusercontent.com/espacecamus/espacecamus.github.io/main/adenott.jpg') center / cover no-repeat;
 }
 
 .media-section .resource-card:has(.resource-link[href*="cnes.fr/"])::before {
