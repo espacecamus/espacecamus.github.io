@@ -165,6 +165,113 @@ body > header:not(.home-space-banner) .header-subtitle {
   font-size: .9rem;
 }
 
+/* Page médias : cartes visuelles avec miniatures, sans boutons */
+.media-section .resource-grid {
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.media-section .resource-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  min-height: 330px;
+  border-radius: 18px !important;
+  background: linear-gradient(145deg, rgba(30,41,59,.78), rgba(15,23,42,.90)) !important;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+.media-section .resource-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34,211,238,.55) !important;
+  box-shadow: 0 16px 34px rgba(0,0,0,.26), 0 0 24px rgba(34,211,238,.08) !important;
+}
+
+.media-section .resource-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.08), rgba(2,6,23,.30)),
+    url('galaxy-banner.jpg') center / cover no-repeat;
+  border-bottom: 1px solid rgba(99,102,241,.24);
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.media-section .resource-card:hover::before {
+  transform: scale(1.02);
+  filter: brightness(1.06);
+}
+
+/* Vraies miniatures lorsqu'elles sont stables */
+.media-section .resource-card:has(.resource-link[href*="youtube.com/watch?v=04k4RGNxlgU"])::before {
+  background-image: url('https://img.youtube.com/vi/04k4RGNxlgU/hqdefault.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.media-section .resource-card:has(.resource-link[href*="dailymotion.com/video/x7myzaz"])::before {
+  background-image: url('https://www.dailymotion.com/thumbnail/video/x7myzaz');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Petites variations pour éviter une grille trop uniforme */
+.media-section .resource-card:nth-child(3n+1)::before {
+  background-position: center 38%;
+}
+.media-section .resource-card:nth-child(3n+2)::before {
+  background-position: center 54%;
+}
+.media-section .resource-card:nth-child(3n)::before {
+  background-position: center 68%;
+}
+
+.media-section .resource-card .resource-type {
+  margin: 16px 18px 0 !important;
+}
+
+.media-section .resource-card h3 {
+  margin: 9px 18px 8px !important;
+  line-height: 1.4;
+}
+
+.media-section .resource-card .resource-source {
+  margin: 0 18px 48px !important;
+  color: #b7c3d7 !important;
+  font-size: .88rem;
+}
+
+/* Le lien couvre maintenant toute la carte : plus aucun bouton visible */
+.media-section .resource-card .resource-link {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: inherit !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  transform: none !important;
+}
+
+.media-section .resource-card::after {
+  content: 'Ouvrir ↗';
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
+  color: #67e8f9;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  pointer-events: none;
+}
+
 @media (max-width: 700px) {
   body > header:not(.home-space-banner) {
     min-height: 205px;
@@ -184,6 +291,7 @@ body > header:not(.home-space-banner) .header-subtitle {
 
   .nav-links a[href="medias.html"]::after { font-size: .88rem; }
   .footer-made::after { font-size: .84rem; }
+  .media-section .resource-grid { grid-template-columns: 1fr !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
