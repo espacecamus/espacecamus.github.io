@@ -108,6 +108,15 @@ body > header:not(.home-space-banner) .header-subtitle {
   display: none !important;
 }
 
+/* Album placé en avant-dernier, juste avant Maquette */
+.nav-links a[href="album.html"] {
+  order: 98;
+}
+
+.nav-links a[href="maquette.html"] {
+  order: 99;
+}
+
 @media (max-width: 700px) {
   body > header:not(.home-space-banner) {
     min-height: 205px;
