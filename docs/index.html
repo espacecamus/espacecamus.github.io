@@ -7,215 +7,441 @@
 <title>Projet Espace – Accueil</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* Bannière spéciale page d'accueil */
+/* ═══════════════════════════════════════════════════════════════
+   BANNIÈRE CINÉMATOGRAPHIQUE — PAGE D'ACCUEIL
+   ═══════════════════════════════════════════════════════════════ */
 .home-space-banner {
-  min-height: clamp(300px, 42vw, 500px);
-  padding: clamp(58px, 8vw, 110px) 20px;
+  min-height: clamp(390px, 52vw, 620px);
+  padding: clamp(76px, 10vw, 132px) 22px 82px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  isolation: isolate;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  perspective: 900px;
+  border-bottom: 1px solid rgba(103,232,249,.22);
 }
 
+/* Fond galaxie + vignettage */
 .home-space-banner::before {
   content: '';
   position: absolute;
-  inset: -4%;
-  z-index: -2;
+  inset: -8%;
+  z-index: -5;
   background:
-    linear-gradient(180deg, rgba(2, 6, 23, .28) 0%, rgba(2, 6, 23, .48) 58%, rgba(2, 6, 23, .78) 100%),
-    radial-gradient(circle at 50% 38%, rgba(99, 102, 241, .15), transparent 42%),
+    radial-gradient(ellipse at 50% 43%, rgba(124,58,237,.18) 0%, transparent 34%),
+    radial-gradient(ellipse at 72% 28%, rgba(34,211,238,.13) 0%, transparent 28%),
+    radial-gradient(ellipse at 20% 75%, rgba(59,130,246,.10) 0%, transparent 32%),
+    linear-gradient(180deg, rgba(1,5,18,.18) 0%, rgba(2,6,23,.36) 44%, rgba(2,6,23,.84) 100%),
     url('galaxy-banner.jpg') center / cover no-repeat;
-  animation: home-galaxy-drift 16s ease-in-out infinite alternate;
+  filter: saturate(1.28) contrast(1.07);
+  animation: cinema-drift 18s ease-in-out infinite alternate;
 }
 
+/* Halo central derrière le titre */
 .home-space-banner::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3px;
-  z-index: 5;
-  background: linear-gradient(90deg, transparent 0%, #6366f1 24%, #22d3ee 50%, #6366f1 76%, transparent 100%);
-  box-shadow: 0 0 22px rgba(34, 211, 238, .65);
+  z-index: -2;
+  left: 50%;
+  top: 48%;
+  width: min(900px, 90vw);
+  height: min(320px, 34vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(56,189,248,.10) 0%, rgba(99,102,241,.075) 34%, transparent 70%);
+  filter: blur(4px);
+  pointer-events: none;
 }
 
-@keyframes home-galaxy-drift {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
-  to   { transform: scale(1.10) translate3d(-1.2%, -1%, 0); }
+@keyframes cinema-drift {
+  0%   { transform: scale(1.05) translate3d(0, 0, 0); }
+  100% { transform: scale(1.13) translate3d(-1.5%, -1.2%, 0); }
+}
+
+/* Champ d'étoiles fin */
+.space-stars,
+.space-stars::before,
+.space-stars::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.space-stars {
+  z-index: -3;
+  background-image:
+    radial-gradient(circle at 6% 17%, rgba(255,255,255,.95) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 13% 48%, rgba(165,243,252,.90) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 21% 26%, rgba(255,255,255,.85) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 28% 73%, rgba(196,181,253,.88) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 37% 12%, rgba(255,255,255,.92) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 46% 66%, rgba(165,243,252,.82) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 55% 20%, rgba(255,255,255,.88) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 63% 78%, rgba(196,181,253,.84) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 72% 14%, rgba(255,255,255,.95) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 79% 56%, rgba(165,243,252,.88) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 87% 31%, rgba(255,255,255,.90) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 94% 72%, rgba(196,181,253,.86) 0 1px, transparent 1.7px);
+  animation: stars-breathe 5s ease-in-out infinite alternate;
+}
+
+.space-stars::before {
+  opacity: .5;
+  transform: scale(.82) rotate(3deg);
+  background-image:
+    radial-gradient(circle at 10% 80%, white 0 1px, transparent 1.4px),
+    radial-gradient(circle at 25% 42%, white 0 1px, transparent 1.4px),
+    radial-gradient(circle at 43% 35%, #a5f3fc 0 1px, transparent 1.4px),
+    radial-gradient(circle at 61% 52%, white 0 1px, transparent 1.4px),
+    radial-gradient(circle at 75% 84%, #c4b5fd 0 1px, transparent 1.4px),
+    radial-gradient(circle at 90% 14%, white 0 1px, transparent 1.4px);
+}
+
+@keyframes stars-breathe {
+  from { opacity: .72; }
+  to   { opacity: 1; }
+}
+
+/* Orbites techniques */
+.orbit-ring {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: min(960px, 88vw);
+  aspect-ratio: 3.25 / 1;
+  border: 1px solid rgba(165,243,252,.20);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  box-shadow: 0 0 34px rgba(99,102,241,.08), inset 0 0 34px rgba(34,211,238,.03);
+  pointer-events: none;
+}
+
+.orbit-ring.orbit-2 {
+  width: min(1160px, 103vw);
+  opacity: .54;
+  transform: translate(-50%, -50%) rotate(11deg);
+}
+
+.orbit-ring::before {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  right: 12%;
+  top: 15%;
+  border-radius: 50%;
+  background: #e0fbff;
+  box-shadow: 0 0 10px #67e8f9, 0 0 28px rgba(34,211,238,.85);
+}
+
+/* Planète en bas à gauche */
+.space-planet {
+  position: absolute;
+  z-index: -1;
+  left: clamp(-105px, -7vw, -40px);
+  bottom: clamp(-130px, -8vw, -72px);
+  width: clamp(210px, 25vw, 350px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 28% 27%, rgba(255,255,255,.38) 0 1.8%, transparent 2.3%),
+    radial-gradient(circle at 42% 44%, rgba(151,169,230,.48) 0 4%, transparent 5%),
+    radial-gradient(circle at 67% 63%, rgba(41,57,111,.72) 0 8%, transparent 9%),
+    radial-gradient(circle at 35% 32%, #8fa9df 0%, #536aa8 31%, #273a76 55%, #101d45 72%, #030817 100%);
+  box-shadow:
+    inset -42px -34px 66px rgba(0,0,0,.62),
+    -8px -8px 36px rgba(147,197,253,.22),
+    0 0 82px rgba(99,102,241,.18);
+  opacity: .96;
+  pointer-events: none;
+}
+
+.space-planet::after {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  border: 2px solid rgba(165,243,252,.18);
+  border-radius: 50%;
+  transform: scaleY(.33) rotate(-14deg);
+  box-shadow: 0 0 26px rgba(34,211,238,.10);
+}
+
+/* Fusée */
+.space-rocket {
+  position: absolute;
+  z-index: 1;
+  right: clamp(28px, 9vw, 150px);
+  top: clamp(40px, 8vw, 100px);
+  font-size: clamp(2.8rem, 5.2vw, 4.8rem);
+  transform: rotate(-36deg);
+  filter: drop-shadow(0 0 12px rgba(255,255,255,.42)) drop-shadow(0 0 24px rgba(34,211,238,.34));
+  animation: rocket-flight 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.space-rocket::after {
+  content: '';
+  position: absolute;
+  width: clamp(70px, 10vw, 140px);
+  height: 3px;
+  left: -78%;
+  top: 67%;
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,.20), rgba(34,211,238,.86), rgba(255,255,255,.95));
+  border-radius: 999px;
+  filter: blur(.3px);
+  transform: rotate(2deg);
+  box-shadow: 0 0 16px rgba(34,211,238,.48);
+}
+
+@keyframes rocket-flight {
+  0%, 100% { transform: translate3d(0,0,0) rotate(-36deg); }
+  50% { transform: translate3d(-9px,-14px,0) rotate(-33deg); }
+}
+
+/* Étoiles filantes */
+.shooting-star {
+  position: absolute;
+  z-index: 0;
+  width: 150px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(165,243,252,.15), rgba(255,255,255,.95));
+  filter: drop-shadow(0 0 6px rgba(103,232,249,.8));
+  opacity: 0;
+  transform: rotate(-28deg);
+  pointer-events: none;
+}
+.shooting-star.one { top: 24%; left: 10%; animation: shoot-one 7s ease-in-out infinite; }
+.shooting-star.two { top: 62%; right: 8%; animation: shoot-two 9s ease-in-out 2.2s infinite; }
+
+@keyframes shoot-one {
+  0%, 70% { opacity: 0; transform: translate3d(0,0,0) rotate(-28deg); }
+  74% { opacity: 1; }
+  83% { opacity: 0; transform: translate3d(230px,-120px,0) rotate(-28deg); }
+  100% { opacity: 0; }
+}
+@keyframes shoot-two {
+  0%, 73% { opacity: 0; transform: translate3d(0,0,0) rotate(-28deg); }
+  77% { opacity: .8; }
+  86% { opacity: 0; transform: translate3d(190px,-90px,0) rotate(-28deg); }
+  100% { opacity: 0; }
+}
+
+/* Contenu central */
+.hero-content {
+  position: relative;
+  z-index: 4;
+  width: min(1050px, 94vw);
+  text-align: center;
+}
+
+.mission-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(103,232,249,.28);
+  background: rgba(4,12,30,.36);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #a5f3fc;
+  font-size: clamp(.64rem, 1.2vw, .76rem);
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  box-shadow: 0 0 28px rgba(34,211,238,.08);
+}
+
+.mission-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 10px #22d3ee;
+  animation: mission-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes mission-pulse {
+  50% { opacity: .4; box-shadow: 0 0 3px #22d3ee; }
 }
 
 .home-space-banner .header-title {
   position: relative;
-  z-index: 3;
   margin: 0;
-  font-size: clamp(2.5rem, 7vw, 5.7rem);
-  font-weight: 800;
-  letter-spacing: .035em;
-  line-height: .98;
+  font-size: clamp(3.1rem, 8.6vw, 7.2rem);
+  font-weight: 850;
+  letter-spacing: .025em;
+  line-height: .92;
   text-transform: none;
-  background: linear-gradient(105deg, #ffffff 0%, #e0f2fe 28%, #a5f3fc 55%, #c4b5fd 82%, #ffffff 100%);
-  background-size: 220% auto;
+  background: linear-gradient(100deg, #ffffff 0%, #eefcff 20%, #a5f3fc 43%, #c4b5fd 65%, #ffffff 86%);
+  background-size: 240% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: home-title-shimmer 7s linear infinite;
+  animation: title-scan 6.5s linear infinite;
   filter:
-    drop-shadow(0 3px 12px rgba(0, 0, 0, .9))
-    drop-shadow(0 0 26px rgba(34, 211, 238, .34));
+    drop-shadow(0 4px 14px rgba(0,0,0,.96))
+    drop-shadow(0 0 24px rgba(103,232,249,.22))
+    drop-shadow(0 0 58px rgba(99,102,241,.22));
 }
 
-@keyframes home-title-shimmer {
-  0%   { background-position: 0% center; }
-  100% { background-position: 220% center; }
+.home-space-banner .header-title::after {
+  content: '';
+  display: block;
+  width: min(520px, 68vw);
+  height: 1px;
+  margin: 24px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(165,243,252,.32), rgba(255,255,255,.86), rgba(165,243,252,.32), transparent);
+  box-shadow: 0 0 12px rgba(34,211,238,.36);
+}
+
+@keyframes title-scan {
+  from { background-position: 0% center; }
+  to   { background-position: 240% center; }
 }
 
 .home-space-banner .header-subtitle {
-  position: relative;
-  z-index: 3;
-  margin-top: 22px;
-  padding: 8px 18px;
-  border: 1px solid rgba(165, 243, 252, .34);
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 22px;
   border-radius: 999px;
-  background: rgba(8, 16, 30, .34);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #eef6ff;
-  font-size: clamp(.72rem, 1.9vw, 1.02rem);
-  font-weight: 600;
-  letter-spacing: .17em;
+  border: 1px solid rgba(196,181,253,.24);
+  background: linear-gradient(90deg, rgba(2,6,23,.34), rgba(30,27,75,.26), rgba(2,6,23,.34));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f1f5ff;
+  font-size: clamp(.74rem, 1.85vw, 1.08rem);
+  font-weight: 650;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  box-shadow: 0 0 24px rgba(99, 102, 241, .14);
+  text-shadow: 0 1px 7px rgba(0,0,0,.95);
+  box-shadow: inset 0 0 20px rgba(99,102,241,.05), 0 0 26px rgba(99,102,241,.08);
 }
 
-.space-kicker {
-  position: relative;
+.hero-tagline {
+  margin: 18px auto 0;
+  color: rgba(226,232,240,.76);
+  font-size: clamp(.76rem, 1.35vw, .92rem);
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+/* Petites infos façon mission-control */
+.telemetry {
+  position: absolute;
   z-index: 3;
-  margin: 0 0 16px;
-  color: #67e8f9;
-  font-size: clamp(.68rem, 1.5vw, .82rem);
-  font-weight: 700;
-  letter-spacing: .3em;
+  left: clamp(16px, 3vw, 42px);
+  top: clamp(18px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: rgba(165,243,252,.54);
+  font-size: clamp(.52rem, .9vw, .64rem);
+  font-weight: 600;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  text-shadow: 0 0 14px rgba(34, 211, 238, .55);
-}
-
-.space-orbit {
-  position: absolute;
-  z-index: 1;
-  width: min(780px, 78vw);
-  aspect-ratio: 2.7 / 1;
-  border: 1px solid rgba(165, 243, 252, .24);
-  border-radius: 50%;
-  transform: rotate(-8deg);
-  box-shadow: 0 0 34px rgba(99, 102, 241, .10);
+  text-align: left;
   pointer-events: none;
 }
 
-.space-orbit::before {
-  content: '';
+.telemetry-right {
+  left: auto;
+  right: clamp(16px, 3vw, 42px);
+  top: auto;
+  bottom: clamp(18px, 3vw, 34px);
+  text-align: right;
+  color: rgba(196,181,253,.48);
+}
+
+/* Trait lumineux inférieur */
+.hero-horizon {
   position: absolute;
-  width: 8px;
-  height: 8px;
-  right: 13%;
-  top: 14%;
-  border-radius: 50%;
-  background: #a5f3fc;
-  box-shadow: 0 0 12px #22d3ee, 0 0 26px rgba(34, 211, 238, .8);
+  z-index: 6;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #4f46e5 20%, #22d3ee 50%, #7c3aed 80%, transparent 100%);
+  box-shadow: 0 0 20px rgba(34,211,238,.55), 0 -12px 40px rgba(99,102,241,.10);
 }
 
-.space-planet {
-  position: absolute;
-  z-index: 0;
-  width: clamp(120px, 17vw, 230px);
-  height: clamp(120px, 17vw, 230px);
-  left: clamp(-70px, -3vw, -20px);
-  bottom: clamp(-80px, -5vw, -35px);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 34% 29%, rgba(255,255,255,.45) 0 2%, transparent 3%),
-    radial-gradient(circle at 41% 38%, #7785c5 0 4%, transparent 5%),
-    radial-gradient(circle at 61% 58%, #404d85 0 7%, transparent 8%),
-    radial-gradient(circle at 35% 35%, #8295d3 0%, #41508a 42%, #172554 69%, #060b1d 100%);
-  box-shadow:
-    inset -28px -22px 40px rgba(0,0,0,.54),
-    0 0 40px rgba(99, 102, 241, .28);
-  opacity: .9;
-  pointer-events: none;
-}
-
-.space-rocket {
-  position: absolute;
-  z-index: 2;
-  right: clamp(16px, 9vw, 120px);
-  top: clamp(28px, 7vw, 85px);
-  font-size: clamp(2rem, 4.5vw, 4rem);
-  transform: rotate(-34deg);
-  filter: drop-shadow(0 0 12px rgba(165, 243, 252, .55));
-  animation: rocket-float 4.5s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes rocket-float {
-  0%, 100% { transform: translateY(0) rotate(-34deg); }
-  50%      { transform: translateY(-11px) rotate(-31deg); }
-}
-
-.space-star {
-  position: absolute;
-  z-index: 2;
-  color: #ffffff;
-  text-shadow: 0 0 12px #67e8f9;
-  animation: star-pulse 2.8s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-.space-star.s1 { top: 22%; left: 17%; font-size: 1rem; }
-.space-star.s2 { top: 28%; right: 24%; font-size: .7rem; animation-delay: .8s; }
-.space-star.s3 { bottom: 24%; right: 14%; font-size: 1.2rem; animation-delay: 1.4s; }
-
-@keyframes star-pulse {
-  from { opacity: .35; transform: scale(.8); }
-  to   { opacity: 1; transform: scale(1.2); }
-}
-
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .home-space-banner {
-    min-height: 310px;
-    padding: 64px 16px;
+    min-height: 410px;
+    padding: 86px 14px 72px;
+  }
+  .home-space-banner .header-title {
+    font-size: clamp(3rem, 15vw, 5rem);
+    line-height: .95;
   }
   .home-space-banner .header-subtitle {
-    max-width: 92%;
-    line-height: 1.5;
-    letter-spacing: .11em;
+    max-width: 94%;
+    padding: 9px 15px;
+    line-height: 1.55;
+    letter-spacing: .10em;
   }
-  .space-orbit { width: 92vw; }
-  .space-rocket { right: 18px; top: 36px; }
-  .space-kicker { letter-spacing: .2em; }
+  .hero-tagline { display: none; }
+  .space-planet {
+    width: 210px;
+    left: -90px;
+    bottom: -98px;
+  }
+  .space-rocket {
+    right: 18px;
+    top: 54px;
+    font-size: 2.9rem;
+  }
+  .orbit-ring { width: 105vw; }
+  .orbit-ring.orbit-2 { width: 128vw; }
+  .telemetry { opacity: .62; }
+  .telemetry-right { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .home-space-banner::before,
-  .home-space-banner .header-title,
+  .space-stars,
   .space-rocket,
-  .space-star { animation: none; }
+  .shooting-star,
+  .mission-dot,
+  .home-space-banner .header-title {
+    animation: none !important;
+  }
 }
 </style>
 </head>
 <body>
 <header class="home-space-banner">
-<div class="space-orbit" aria-hidden="true"></div>
-<div class="space-planet" aria-hidden="true"></div>
-<div class="space-rocket" aria-hidden="true">🚀</div>
-<div class="space-star s1" aria-hidden="true">✦</div>
-<div class="space-star s2" aria-hidden="true">✧</div>
-<div class="space-star s3" aria-hidden="true">✦</div>
-<div class="space-kicker">Exploration • Sciences • Aventure</div>
-<div class="header-title">Projet Espace</div>
-<div class="header-subtitle">Collège Albert Camus - La Norville</div>
+  <div class="space-stars" aria-hidden="true"></div>
+  <div class="orbit-ring" aria-hidden="true"></div>
+  <div class="orbit-ring orbit-2" aria-hidden="true"></div>
+  <div class="space-planet" aria-hidden="true"></div>
+  <div class="space-rocket" aria-hidden="true">🚀</div>
+  <div class="shooting-star one" aria-hidden="true"></div>
+  <div class="shooting-star two" aria-hidden="true"></div>
+
+  <div class="telemetry" aria-hidden="true">
+    <span>CAMUS SPACE PROGRAM</span>
+    <span>48.59° N · 2.26° E</span>
+  </div>
+  <div class="telemetry telemetry-right" aria-hidden="true">
+    <span>MISSION STATUS · ACTIVE</span>
+    <span>LA NORVILLE · FRANCE</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="mission-label"><span class="mission-dot"></span> Mission Albert Camus</div>
+    <div class="header-title">Projet Espace</div>
+    <div class="header-subtitle">Collège Albert Camus - La Norville</div>
+    <div class="hero-tagline">Exploration • Sciences • Innovation • Rêver plus loin</div>
+  </div>
+
+  <div class="hero-horizon" aria-hidden="true"></div>
 </header>
 
 <nav>
