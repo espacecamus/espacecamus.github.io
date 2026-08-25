@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&display=swap');
+
+/* Bannière commune aux pages du site */
+body > header:not(.home-space-banner) {
+  min-height: clamp(220px, 25vw, 300px);
+  padding: clamp(42px, 6vw, 68px) 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(103,232,249,.22);
+}
+
+body > header:not(.home-space-banner)::before {
+  content: '';
+  position: absolute;
+  inset: -4%;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 8% 108%, rgba(132,153,219,.95) 0 8%, rgba(65,80,138,.86) 15%, rgba(16,29,69,.72) 24%, transparent 25%),
+    radial-gradient(ellipse at 50% 45%, rgba(124,58,237,.14) 0%, transparent 34%),
+    radial-gradient(ellipse at 72% 25%, rgba(34,211,238,.10) 0%, transparent 28%),
+    linear-gradient(180deg, rgba(1,5,18,.18) 0%, rgba(2,6,23,.45) 55%, rgba(2,6,23,.82) 100%),
+    url('galaxy-banner.jpg') center / cover no-repeat;
+  filter: saturate(1.22) contrast(1.05);
+  animation: banner-space-drift 16s ease-in-out infinite alternate;
+}
+
+body > header:not(.home-space-banner)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  z-index: 3;
+  background: linear-gradient(90deg, transparent 0%, #4f46e5 20%, #22d3ee 50%, #7c3aed 80%, transparent 100%);
+  box-shadow: 0 0 20px rgba(34,211,238,.5);
+}
+
+@keyframes banner-space-drift {
+  from { transform: scale(1.03) translate3d(0,0,0); }
+  to { transform: scale(1.08) translate3d(-1%,-.8%,0); }
+}
+
+body > header:not(.home-space-banner) .header-title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-size: clamp(2.35rem, 6vw, 4.9rem);
+  font-weight: 700;
+  letter-spacing: .045em;
+  line-height: .98;
+  text-transform: uppercase;
+  background: linear-gradient(100deg, #ffffff 0%, #dff9ff 26%, #a5f3fc 48%, #c4b5fd 70%, #ffffff 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: banner-title-scan 7s linear infinite;
+  filter:
+    drop-shadow(0 4px 12px rgba(0,0,0,.95))
+    drop-shadow(0 0 24px rgba(103,232,249,.22));
+}
+
+body > header:not(.home-space-banner) .header-title::after {
+  content: '';
+  display: block;
+  width: min(430px, 64vw);
+  height: 1px;
+  margin: 17px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(165,243,252,.30), rgba(255,255,255,.82), rgba(165,243,252,.30), transparent);
+  box-shadow: 0 0 10px rgba(34,211,238,.32);
+}
+
+@keyframes banner-title-scan {
+  from { background-position: 0% center; }
+  to { background-position: 220% center; }
+}
+
+body > header:not(.home-space-banner) .header-subtitle {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  margin-top: 17px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(196,181,253,.24);
+  background: rgba(2,6,23,.34);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  color: #f1f5ff;
+  font-size: clamp(.7rem, 1.6vw, .95rem);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 7px rgba(0,0,0,.95);
+}
+
+@media (max-width: 700px) {
+  body > header:not(.home-space-banner) {
+    min-height: 205px;
+    padding: 38px 14px 42px;
+  }
+
+  body > header:not(.home-space-banner) .header-title {
+    font-size: clamp(2.15rem, 12vw, 3.5rem);
+  }
+
+  body > header:not(.home-space-banner) .header-subtitle {
+    max-width: 92%;
+    padding: 7px 13px;
+    line-height: 1.45;
+    letter-spacing: .09em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body > header:not(.home-space-banner)::before,
+  body > header:not(.home-space-banner) .header-title {
+    animation: none !important;
+  }
+}
