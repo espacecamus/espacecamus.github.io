@@ -21,18 +21,17 @@
 <a href="index.html">Accueil</a>
 <a href="evenement.html">Agenda 2026-27</a>
 <a href="album.html" class="active">Album</a>
-<a href="projets.html">Projets Futurs</a>
+<a href="medias.html">Vidéos &amp; articles</a>
 <a href="astropi.html">AstroPi</a>
 <a href="https://padlet.com/padfse/ariss-qaf1ndtv7npwkudz" target="_blank">ARISS</a>
 <a href="maquette.html">Maquette</a>
-<a href="remerciements.html">Remerciements</a>
 </div>
 </nav>
 
 <section>
 <h2>Album</h2>
 <p><strong>Album numérique des classes Espace : souvenirs préservés, sécurité garantie !</strong></p>
-<p>Retrouvez dans cet album une sélection des photos prises lors des événements et activités des classes Espace. </p>
+<p>Retrouvez dans cet album une sélection des photos prises lors des événements et activités des classes Espace.</p>
 <p style="background:rgba(99,102,241,.12); border:1px solid rgba(99,102,241,.35); border-radius:10px; padding:14px 18px; display:flex; align-items:center; gap:12px;">
   <span style="font-size:1.6rem;">📁</span>
   <span>Toutes les photos sont disponibles sur le <a href="https://drive.google.com/drive/folders/1AzEFtRAR1WqoHA3z0piWuVcHy3ttA8ke?usp=sharing" target="_blank" style="color:#a5b4fc; font-weight:700; text-decoration:none;">Drive du Projet Espace →</a></span>
@@ -42,45 +41,26 @@
 
 <h3>Raspberry Pi – salle AstroPi</h3>
 <div class="gallery">
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi">
-  </div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-30 194330.png" loading="lazy" alt="Raspberry Pi en salle AstroPi"></div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-30 194638.png" loading="lazy" alt="Raspberry Pi en salle AstroPi"></div>
 </div>
 
 <h3>Tenues Espace sur Animal Crossing 😎🚀</h3>
 <div class="gallery">
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-02-01 112916.png" loading="lazy" alt="Tenues espace sur Animal Crossing">
-  </div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-02-01 112916.png" loading="lazy" alt="Tenues espace sur Animal Crossing"></div>
 </div>
 
 <h3>Maquettes, salles et décoration AstroPi</h3>
 <div class="gallery">
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-30 194921.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-30 195255.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-31 101014.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-31 101146.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-31 101937.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
-  </div>
-  <div class="gallery-item">
-    <img src="Capture d'écran 2026-01-31 102516.png" loading="lazy" alt="Maquette et décoration salle AstroPi">
-  </div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-30 194921.png" loading="lazy" alt="Maquette et décoration salle AstroPi"></div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-30 195255.png" loading="lazy" alt="Maquette et décoration salle AstroPi"></div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-31 101014.png" loading="lazy" alt="Maquette et décoration salle AstroPi"></div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-31 101146.png" loading="lazy" alt="Maquette et décoration salle AstroPi"></div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-31 101937.png" loading="lazy" alt="Maquette et décoration salle AstroPi"></div>
+  <div class="gallery-item"><img src="Capture d'écran 2026-01-31 102516.png" loading="lazy" alt="Maquette et décoration salle AstroPi"></div>
 </div>
 </section>
 
-<!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close">&times;</span>
   <span id="lightbox-title" class="lightbox-title"></span>
@@ -95,7 +75,6 @@ const lightboxImg = document.getElementById('lightbox-img');
 const lightboxTitle = document.getElementById('lightbox-title');
 const imgs = Array.from(document.querySelectorAll('.gallery-item img'));
 let currentIndex = 0;
-
 function getGroupTitle(img) {
   let el = img.closest('.gallery');
   while ((el = el.previousElementSibling)) {
@@ -103,7 +82,6 @@ function getGroupTitle(img) {
   }
   return '';
 }
-
 function openAt(index) {
   currentIndex = (index + imgs.length) % imgs.length;
   lightboxImg.src = imgs[currentIndex].src;
@@ -111,30 +89,17 @@ function openAt(index) {
   lightboxTitle.textContent = getGroupTitle(imgs[currentIndex]);
   lightbox.classList.add('open');
 }
-
 imgs.forEach((img, i) => img.addEventListener('click', () => openAt(i)));
-
-document.querySelector('.lightbox-prev').addEventListener('click', e => {
-  e.stopPropagation();
-  openAt(currentIndex - 1);
-});
-
-document.querySelector('.lightbox-next').addEventListener('click', e => {
-  e.stopPropagation();
-  openAt(currentIndex + 1);
-});
-
+document.querySelector('.lightbox-prev').addEventListener('click', e => { e.stopPropagation(); openAt(currentIndex - 1); });
+document.querySelector('.lightbox-next').addEventListener('click', e => { e.stopPropagation(); openAt(currentIndex + 1); });
 lightbox.addEventListener('click', e => {
-  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) {
-    lightbox.classList.remove('open');
-  }
+  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) lightbox.classList.remove('open');
 });
-
 document.addEventListener('keydown', e => {
   if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape')      lightbox.classList.remove('open');
-  if (e.key === 'ArrowLeft')   openAt(currentIndex - 1);
-  if (e.key === 'ArrowRight')  openAt(currentIndex + 1);
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+  if (e.key === 'ArrowLeft') openAt(currentIndex - 1);
+  if (e.key === 'ArrowRight') openAt(currentIndex + 1);
 });
 </script>
 
