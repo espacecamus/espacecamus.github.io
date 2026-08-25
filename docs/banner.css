@@ -233,7 +233,7 @@ body > header:not(.home-space-banner) .header-subtitle {
 .media-section .resource-card:has(.resource-link[href*="cnes.fr/"])::before {
   background:
     linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
-    url('pesquet.JPG') center / cover no-repeat;
+    url('cneeee.jpg') center / cover no-repeat;
 }
 
 .media-section .resource-card:has(.resource-link[href*="actu.fr/"])::before {
@@ -244,8 +244,8 @@ body > header:not(.home-space-banner) .header-subtitle {
 
 .media-section .resource-card:has(.resource-link[href*="mesinfos.fr/"])::before {
   background:
-    url('https://www.google.com/s2/favicons?domain=mesinfos.fr&sz=256') center / 96px 96px no-repeat,
-    linear-gradient(145deg, #0f172a, #1d4ed8 55%, #0c4a6e);
+    linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
+    url('pesquet.JPG') center / cover no-repeat;
 }
 
 .media-section .resource-card:has(.resource-link[href*="Matinee-rencontre_en_Sorbonne"])::before {
