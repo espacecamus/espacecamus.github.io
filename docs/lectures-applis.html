@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<link rel="icon" type="image/png" href="20251203-160833.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projet Espace – Idées lectures & applications</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="banner.css">
+<style>
+.reading-intro { margin-bottom: 30px; }
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+.book-card {
+  display: grid;
+  grid-template-columns: 155px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid rgba(99,102,241,.30);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(30,41,59,.74), rgba(15,23,42,.84));
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+.book-cover-wrap {
+  background: rgba(2,6,23,.38);
+  border-radius: 13px;
+  padding: 8px;
+  text-align: center;
+}
+.book-cover {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 9px;
+  display: block;
+}
+.book-card h3 { margin: 0 0 8px; }
+.book-author { color: #a5b4fc; font-weight: 700; margin: 0 0 12px; }
+.book-link {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#4f46e5,#06b6d4);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(6,182,212,.18);
+}
+.apps-box {
+  margin-top: 36px;
+  padding: 22px;
+  border: 1px solid rgba(34,211,238,.25);
+  border-radius: 16px;
+  background: rgba(15,23,42,.55);
+}
+.apps-box h2 { margin-top: 0; }
+@media (max-width: 900px) {
+  .book-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .book-card { grid-template-columns: 1fr; }
+  .book-cover { height: 290px; }
+  .book-cover-wrap { max-width: 230px; margin: 0 auto; width: 100%; }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-title">Projet Espace</div>
+<div class="header-subtitle">Collège Albert Camus – La Norville</div>
+</header>
+
+<nav>
+<label class="nav-toggle" for="nav-check">&#9776; Navigation</label>
+<input type="checkbox" id="nav-check" class="nav-check">
+<div class="nav-links">
+<a href="index.html">Accueil</a>
+<a href="evenement.html">Agenda 2026-27</a>
+<a href="sophie-adenot.html">Sophie Adenot</a>
+<a href="album.html">Album</a>
+<a href="medias.html">Vidéos &amp; articles sur le projet</a>
+<a href="reportages.html">Reportages</a>
+<a href="sorties.html">Idées sorties</a>
+<a href="lectures-applis.html" class="active">Idées lectures &amp; applis</a>
+<a href="astropi.html">AstroPi</a>
+<a href="https://padlet.com/padfse/ariss-qaf1ndtv7npwkudz" target="_blank">ARISS</a>
+<a href="maquette.html">Maquette</a>
+</div>
+</nav>
+
+<section>
+<h2>Idées de lectures &amp; applications</h2>
+<div class="reading-intro">
+<p>Pour prolonger la découverte de l’espace à la maison, voici quelques lectures accessibles, passionnantes et souvent pleines d’humour.</p>
+<p>Cette sélection pourra être complétée au fil de l’année avec de nouvelles lectures et des applications pour téléphone autour de l’astronomie et de l’exploration spatiale.</p>
+</div>
+
+<div class="book-grid">
+  <article class="book-card">
+    <div class="book-cover-wrap"><img class="book-cover" src="https://media.e.leclerc/9782749959160_1?fit=fit&amp;fmt=pjpeg&amp;hei=450&amp;op_sharpen=1&amp;qlt=85&amp;resmode=bilin&amp;trim=0.5&amp;wid=450" alt="Couverture Les Explorateurs de l’Univers tome 1" loading="lazy"></div>
+    <div>
+      <h3>Les Explorateurs de l’Univers – Tome 1</h3>
+      <p class="book-author">Christophe Galfard · Fanny Antigny</p>
+      <p>Une aventure illustrée pour partir à la découverte de l’Univers, des étoiles, des galaxies et des trous noirs.</p>
+      <a class="book-link" href="https://www.espacetemps.com/livre/23805558-les-explorateurs-de-l-univers-christophe-galfard-michel-lafon" target="_blank" rel="noopener noreferrer">Découvrir le livre</a>
+    </div>
+  </article>
+
+  <article class="book-card">
+    <div class="book-cover-wrap"><img class="book-cover" src="https://williamcrocodile.com/cdn/shop/files/rn-image_picker_lib_temp_d73cb1e2-750e-4e1e-8ba5-047a86311761_1200x1200.jpg?v=1764684795" alt="Couverture Les Explorateurs de l’Univers tome 2" loading="lazy"></div>
+    <div>
+      <h3>Les Explorateurs de l’Univers – Tome 2</h3>
+      <p class="book-author">Christophe Galfard · Fanny Antigny</p>
+      <p><strong>Big Bang et matière noire</strong> : un nouveau voyage pour remonter aux origines de l’Univers et explorer ses grands mystères.</p>
+      <a class="book-link" href="https://www.espacetemps.com/livre/25160928-les-explorateurs-de-l-univers-tome-2-big-bang-et-matiere-noire-big-bang-et-matiere-noire-christophe-galfard-michel-lafon" target="_blank" rel="noopener noreferrer">Découvrir le livre</a>
+    </div>
+  </article>
+
+  <article class="book-card">
+    <div class="book-cover-wrap"><img class="book-cover" src="https://media.senscritique.com/media/000017248788/source_big/Dans_la_combi_de_Thomas_Pesquet.jpg" alt="Couverture Dans la combi de Thomas Pesquet" loading="lazy"></div>
+    <div>
+      <h3>Dans la combi de Thomas Pesquet</h3>
+      <p class="book-author">Marion Montaigne</p>
+      <p>Une bande dessinée drôle et très documentée pour découvrir la sélection, l’entraînement et le quotidien d’un astronaute.</p>
+      <a class="book-link" href="https://www.espacetemps.com/livre/12874686-0-dans-la-combi-de-thomas-pesquet-marion-montaigne-dargaud" target="_blank" rel="noopener noreferrer">Découvrir le livre</a>
+    </div>
+  </article>
+
+  <article class="book-card">
+    <div class="book-cover-wrap"><img class="book-cover" src="https://static.fnac-static.com/multimedia/PE/Images/FR/NR/03/f6/30/19985923/1507-1/tsp20260326144457/Space-Montaigne.jpg" alt="Couverture Space Montaigne" loading="lazy"></div>
+    <div>
+      <h3>Space Montaigne</h3>
+      <p class="book-author">Marion Montaigne</p>
+      <p>Une nouvelle plongée, avec humour, dans les coulisses de l’aventure spatiale et dans le travail de reportage autour de Thomas Pesquet.</p>
+      <a class="book-link" href="https://www.espacetemps.com/livre/26336530-0-space-montaigne-marion-montaigne-charivari" target="_blank" rel="noopener noreferrer">Découvrir le livre</a>
+    </div>
+  </article>
+</div>
+
+<div class="apps-box">
+  <h2>Applications pour téléphone</h2>
+  <p>Cette partie sera enrichie prochainement avec une sélection d’applications utiles pour observer le ciel, reconnaître les constellations et suivre l’actualité spatiale.</p>
+</div>
+</section>
+
+<footer>
+  <p class="footer-title">© Projet Espace — Collège Albert Camus de La Norville</p>
+  <p class="footer-made">🛸 Site réalisé avec passion par <strong>Valentin</strong> et <strong>Mati</strong>, élèves en classe de <strong>3ème Espace</strong> ✨</p>
+</footer>
+</body>
+</html>
