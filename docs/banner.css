@@ -407,3 +407,29 @@ body > header:not(.home-space-banner) .header-subtitle {
     linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
     url('helice.JPG') center / cover no-repeat;
 }
+
+/* Ajustements de la grille médias */
+.media-section .resource-grid {
+  gap: 0 !important;
+}
+
+/* Les blocs médias sans sous-titre se suivent sans espace vertical */
+.media-section:not(:has(> h2)) {
+  margin-top: 0 !important;
+}
+
+/* Nouvelle vidéo Sophie Adenot placée en 3e position */
+.media-section:first-of-type .resource-card:nth-child(1) { order: 1; }
+.media-section:first-of-type .resource-card:nth-child(2) { order: 2; }
+.media-section:first-of-type .resource-card.media-saclay-adenot { order: 3; }
+.media-section:first-of-type .resource-card:has(.resource-link[href*="essonne.fr/"]) { order: 4; }
+
+/* Nouveau titre de la carte Sophie Adenot */
+.resource-card.media-saclay-adenot h3 {
+  font-size: 0 !important;
+}
+.resource-card.media-saclay-adenot h3::after {
+  content: 'Direct de Sophie Adenot avec les élèves';
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
