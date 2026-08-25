@@ -104,23 +104,14 @@ body > header:not(.home-space-banner) .header-subtitle {
 
 /* Onglets retirés de la navigation */
 .nav-links a[href="projets.html"],
-.nav-links a[href="remerciements.html"] {
+.nav-links a[href="remerciements.html"],
+.nav-links a[href="maquette.html"] {
   display: none !important;
 }
 
-/* Album placé en avant-dernier, juste avant Maquettes */
+/* Album placé en avant-dernier parmi les onglets visibles */
 .nav-links a[href="album.html"] {
   order: 98;
-}
-
-.nav-links a[href="maquette.html"] {
-  order: 99;
-  font-size: 0;
-}
-
-.nav-links a[href="maquette.html"]::after {
-  content: 'Maquettes';
-  font-size: .9rem;
 }
 
 /* Libellé commun de la rubrique médias sur toutes les pages */
@@ -150,8 +141,7 @@ body > header:not(.home-space-banner) .header-subtitle {
     letter-spacing: .09em;
   }
 
-  .nav-links a[href="medias.html"]::after,
-  .nav-links a[href="maquette.html"]::after {
+  .nav-links a[href="medias.html"]::after {
     font-size: .88rem;
   }
 }
