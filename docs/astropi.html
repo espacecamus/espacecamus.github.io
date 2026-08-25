@@ -21,11 +21,10 @@
 <a href="index.html">Accueil</a>
 <a href="evenement.html">Agenda 2026-27</a>
 <a href="album.html">Album</a>
-<a href="projets.html">Projets Futurs</a>
+<a href="medias.html">Vidéos &amp; articles</a>
 <a href="astropi.html" class="active">AstroPi</a>
 <a href="https://padlet.com/padfse/ariss-qaf1ndtv7npwkudz" target="_blank">ARISS</a>
 <a href="maquette.html">Maquette</a>
-<a href="remerciements.html">Remerciements</a>
 </div>
 </nav>
 
@@ -51,7 +50,6 @@
 </div>
 </section>
 
-<!-- Lightbox -->
 <div id="lightbox" class="lightbox">
   <span class="lightbox-close">&times;</span>
   <span id="lightbox-title" class="lightbox-title"></span>
@@ -66,7 +64,6 @@ const lightboxImg = document.getElementById('lightbox-img');
 const lightboxTitle = document.getElementById('lightbox-title');
 const imgs = Array.from(document.querySelectorAll('.gallery-item img'));
 let currentIndex = 0;
-
 function getGroupTitle(img) {
   let el = img.closest('.gallery');
   while ((el = el.previousElementSibling)) {
@@ -74,7 +71,6 @@ function getGroupTitle(img) {
   }
   return '';
 }
-
 function openAt(index) {
   currentIndex = (index + imgs.length) % imgs.length;
   lightboxImg.src = imgs[currentIndex].src;
@@ -82,30 +78,17 @@ function openAt(index) {
   lightboxTitle.textContent = getGroupTitle(imgs[currentIndex]);
   lightbox.classList.add('open');
 }
-
 imgs.forEach((img, i) => img.addEventListener('click', () => openAt(i)));
-
-document.querySelector('.lightbox-prev').addEventListener('click', e => {
-  e.stopPropagation();
-  openAt(currentIndex - 1);
-});
-
-document.querySelector('.lightbox-next').addEventListener('click', e => {
-  e.stopPropagation();
-  openAt(currentIndex + 1);
-});
-
+document.querySelector('.lightbox-prev').addEventListener('click', e => { e.stopPropagation(); openAt(currentIndex - 1); });
+document.querySelector('.lightbox-next').addEventListener('click', e => { e.stopPropagation(); openAt(currentIndex + 1); });
 lightbox.addEventListener('click', e => {
-  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) {
-    lightbox.classList.remove('open');
-  }
+  if (!e.target.closest('.lightbox-nav') && e.target !== lightboxImg) lightbox.classList.remove('open');
 });
-
 document.addEventListener('keydown', e => {
   if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape')      lightbox.classList.remove('open');
-  if (e.key === 'ArrowLeft')   openAt(currentIndex - 1);
-  if (e.key === 'ArrowRight')  openAt(currentIndex + 1);
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+  if (e.key === 'ArrowLeft') openAt(currentIndex - 1);
+  if (e.key === 'ArrowRight') openAt(currentIndex + 1);
 });
 </script>
 
