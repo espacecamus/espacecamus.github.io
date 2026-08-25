@@ -24,3 +24,14 @@
 .media-section:first-of-type .resource-card:nth-child(14) { order: 14 !important; }
 .media-section:first-of-type .resource-card:nth-child(15) { order: 15 !important; }
 .media-section:first-of-type .resource-card:nth-child(16) { order: 16 !important; }
+
+/* Dernier onglet du menu : Contact */
+.nav-links a[href="maquette.html"] {
+  display: inline-block !important;
+  order: 11 !important;
+  font-size: 0 !important;
+}
+.nav-links a[href="maquette.html"]::after {
+  content: 'Contact';
+  font-size: .9rem;
+}
