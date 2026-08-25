@@ -433,3 +433,8 @@ body > header:not(.home-space-banner) .header-subtitle {
   font-size: 1.05rem;
   line-height: 1.4;
 }
+
+/* Ordre commun des premiers onglets */
+.nav-links a[href="index.html"] { order: -3; }
+.nav-links a[href="evenement.html"] { order: -2; }
+.nav-links a[href="medias.html"] { order: -1; }
