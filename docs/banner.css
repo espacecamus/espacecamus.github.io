@@ -54,28 +54,12 @@ body > header:not(.home-space-banner)::after {
 }
 
 @keyframes shooting-star {
-  0%, 68% {
-    opacity: 0;
-    transform: rotate(-13deg) translate3d(0,0,0);
-  }
-  70% {
-    opacity: 0;
-  }
-  72% {
-    opacity: 1;
-  }
-  78% {
-    opacity: .95;
-    transform: rotate(-13deg) translate3d(72vw, 105px, 0);
-  }
-  82% {
-    opacity: 0;
-    transform: rotate(-13deg) translate3d(118vw, 172px, 0);
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(-13deg) translate3d(118vw, 172px, 0);
-  }
+  0%, 68% { opacity: 0; transform: rotate(-13deg) translate3d(0,0,0); }
+  70% { opacity: 0; }
+  72% { opacity: 1; }
+  78% { opacity: .95; transform: rotate(-13deg) translate3d(72vw, 105px, 0); }
+  82% { opacity: 0; transform: rotate(-13deg) translate3d(118vw, 172px, 0); }
+  100% { opacity: 0; transform: rotate(-13deg) translate3d(118vw, 172px, 0); }
 }
 
 body > header:not(.home-space-banner) .header-title {
@@ -94,9 +78,7 @@ body > header:not(.home-space-banner) .header-title {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: banner-title-scan 7s linear infinite;
-  filter:
-    drop-shadow(0 4px 12px rgba(0,0,0,.95))
-    drop-shadow(0 0 24px rgba(103,232,249,.22));
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.95)) drop-shadow(0 0 24px rgba(103,232,249,.22));
 }
 
 body > header:not(.home-space-banner) .header-title::after {
@@ -131,6 +113,18 @@ body > header:not(.home-space-banner) .header-subtitle {
   letter-spacing: .14em;
   text-transform: uppercase;
   text-shadow: 0 1px 7px rgba(0,0,0,.95);
+}
+
+/* Pied de page commun */
+.footer-made {
+  font-size: 0 !important;
+}
+
+.footer-made::after {
+  content: '🛰️ Conception initiale : Mati & Valentin – Classes Espace 2025-2026  |  🚀 Développement, finalisation et mise à jour : Mme Harel ✨';
+  display: inline-block;
+  font-size: .92rem;
+  line-height: 1.55;
 }
 
 /* Onglets retirés de la navigation */
@@ -172,9 +166,8 @@ body > header:not(.home-space-banner) .header-subtitle {
     letter-spacing: .09em;
   }
 
-  .nav-links a[href="medias.html"]::after {
-    font-size: .88rem;
-  }
+  .nav-links a[href="medias.html"]::after { font-size: .88rem; }
+  .footer-made::after { font-size: .84rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
