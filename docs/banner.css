@@ -410,7 +410,7 @@ body > header:not(.home-space-banner) .header-subtitle {
 
 /* Ajustements de la grille médias */
 .media-section .resource-grid {
-  gap: 0 !important;
+  gap: 24px !important;
 }
 
 /* Les blocs médias sans sous-titre se suivent sans espace vertical */
