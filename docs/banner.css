@@ -233,7 +233,7 @@ body > header:not(.home-space-banner) .header-subtitle {
 .media-section .resource-card:has(.resource-link[href*="cnes.fr/"])::before {
   background:
     linear-gradient(180deg, rgba(2,6,23,.03), rgba(2,6,23,.18)),
-    url('cneeee.jpg') center / cover no-repeat;
+    url('https://raw.githubusercontent.com/espacecamus/espacecamus.github.io/main/cnesmag.JPG') center / cover no-repeat;
 }
 
 .media-section .resource-card:has(.resource-link[href*="actu.fr/"])::before {
