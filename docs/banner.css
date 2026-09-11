@@ -25,7 +25,7 @@
 .media-section:first-of-type .resource-card:nth-child(15) { order: 15 !important; }
 .media-section:first-of-type .resource-card:nth-child(16) { order: 16 !important; }
 
-/* Dernier onglet du menu : Contact */
+/* Onglet Contact */
 .nav-links a[href="maquette.html"] {
   display: inline-block !important;
   order: 11 !important;
@@ -33,5 +33,12 @@
 }
 .nav-links a[href="maquette.html"]::after {
   content: 'Contact';
+  font-size: .9rem;
+}
+
+/* Dernier onglet du menu : Vidéos Paus Espace */
+.nav-links a[href*="videos-paus-espace-25vno980gornxdez"] {
+  display: inline-block !important;
+  order: 12 !important;
   font-size: .9rem;
 }
